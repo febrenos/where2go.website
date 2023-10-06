@@ -1,0 +1,42 @@
+.progressBar{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    border-radius: 5px;
+    transition: 1s;
+}
+.ball{
+    /* width: 20px;
+    height: 20px; */
+    border-radius: 100%;
+    background-color: #858585;
+    margin: 5px;
+}
+.ball p{
+    font-size: 12px;
+    color: white;
+    /* margin-top: 2px; */
+    display: flex;
+    justify-content: center;
+    padding: 2px 7px;
+
+}
+.line{
+    width: 100%;
+    height: 5px;
+    background-color: #858585;
+    border-radius: 10px;
+}
+.backgroundBall{
+    background-color: #0c899f;
+    /* #0c629f
+    #1b7ec5 */
+}
+.backgroundLine{
+    /* background-color: #0c899f; */
+    background: linear-gradient(90deg, #0c899f, #0c899f5e);
+    /* background: linear-gradient(90deg, #0c899f, #0c899f, transparent); */
+    /* #0c629f
+    #1b7ec5 */
+}

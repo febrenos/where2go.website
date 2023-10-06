@@ -1,0 +1,41 @@
+
+
+.load{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #383150;
+    opacity: .8;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    animation: fade-out 1.8s infinite ease-in-out 2s;
+    
+}
+.load img {
+    width: 30px;
+    font-weight: 500;
+    color: #1CA9C2;
+    letter-spacing: 5px;
+    animation: spacing 2s ease-in-out, fade-in 1.8s infinite ease-in-out 2s;
+}
+
+@keyframes spacing {
+    0%{
+        letter-spacing: 15px;
+    }
+}
+
+@keyframes fade-in{
+    50%{
+        opacity: .3;
+    }
+}
+@keyframes fade-out{
+    50%{
+        opacity: .9;
+    }
+}
