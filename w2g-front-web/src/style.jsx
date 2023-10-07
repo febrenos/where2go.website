@@ -73,14 +73,10 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const StyledContentLogged = styled.div`
-display:flex;
-flex-wrap:wrap;
-// padding: 0 0 20px 0;
-gap:20px;
-// & > *{
-//   display:flex;
-//   gap:20px;
-// }
+padding: 0 20px 0 0;
+& > *{
+  padding: 0 0 20px 0;
+}
 @media(width < 768px){
   padding: 0 20px 20px 20px;
   flex-direction:column;
@@ -105,6 +101,7 @@ padding:30px;
 export const Gap = styled.div`
   display:flex;
   flex-wrap:wrap;
+  padding: 50px 0 0 0;
   gap:20px;
   @media(width > 768px){
     flex-direction:row;

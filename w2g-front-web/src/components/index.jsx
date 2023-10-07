@@ -14,4 +14,4 @@ export { TitleApresentation } from './TitleApresentation';
 export { Title } from './Title';
 export { TitlePage } from './TitlePage';
 export { WordPreferences } from './WordPreferences';
-export { BackgroundCard } from './BackgroundCard';
+export { GridItems } from './GridItems';

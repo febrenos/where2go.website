@@ -13,15 +13,14 @@ padding: 0 0 3px 20px;
 export const Content = styled.div`
 width: 400px;
 max-width: 480px;
-background: rgb(32, 32, 36);
+background: var(--bg-secondary);
 border-radius: 32px;
 padding: 30px;
-display: flex;
 flex-direction: column;
-justify-content: space-between;
-display: grid;
-grid-template-columns: repeat(1, 1fr);
-grid-row-gap: 50px;
+justify-content: center;
+text-align:center;
+display: flex;
+gap:30px;
 @media(width < 768px){
     width: 100%;
     padding: 50px 20px 40px 20px;

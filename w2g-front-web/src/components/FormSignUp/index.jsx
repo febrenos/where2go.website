@@ -30,7 +30,6 @@ export function FormSignUp(){
                     <Styled.Text>Já tem um conta?</Styled.Text>
                     <Styled.TextBold><Link to="/SignIn">Login</Link></Styled.TextBold>
                 </div>
-                
                 <Btn text="Cadastrar" size="md" solid/>
             </Styled.Content>
         </Styled.All>

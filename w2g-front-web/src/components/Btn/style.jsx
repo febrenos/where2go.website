@@ -1,5 +1,13 @@
 import styled from 'styled-components';
 
+
+export const Content = styled.button`
+width:100%;
+background-color:transparent;
+@media(width > 768px){
+  width:auto;
+}
+`
 export const Button = styled.button`
   cursor: pointer;
   border-radius: 8px;
