@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     --info-color: #17a2b8;
     --light-color: #f8f9fa;
     --dark-color: #343a40;
-    --btn-txt: #fff;
+    --button-txt: #fff;
   }
 
   * {
@@ -70,12 +70,26 @@ export const GlobalStyle = createGlobalStyle`
     background: var(--bg-secondary);
     border-radius: 8px;
   }
+  .contentOpen{
+    transition: .6s;
+    padding-left: 65px;
+    @media(width < 768px){
+        padding: 23px 0 0 0;
+    }
+}
+.contentClose{
+    transition: .6s;
+    padding-left: 220px;
+    @media(width < 768px){
+        padding: 23px 0 0 0;
+    }
+}
 `;
 
 export const StyledContentLogged = styled.div`
 padding: 0 20px 0 0;
 & > *{
-  padding: 0 0 20px 0;
+  padding: 0 0 40px 0;
 }
 @media(width < 768px){
   padding: 0 20px 20px 20px;

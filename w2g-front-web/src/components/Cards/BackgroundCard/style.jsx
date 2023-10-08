@@ -13,3 +13,7 @@ padding:30px;
     width:100%;
 }
 `
+export const Title = styled.h3`
+color:var(--text-primary);
+font-size:20px;
+`

@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
-import {TitlePage, Header} from '../../components/index';
+import {TitlePage, Menu} from '../../components/index';
 
-export default function() {
+export default function ChatBot() {
     const [isOpen, setIsOpen] = useState(false);
 
     return(
         <>
         <main>
-            <Header isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}/> 
+            <Menu isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}/> 
             <div className={isOpen ? 'contentClose' : 'contentOpen'}>
-                <TitlePage Title={"Chatbot"}/>
+                <TitlePage text={"Chatbot"}/>
             </div>
         </main>
         </>

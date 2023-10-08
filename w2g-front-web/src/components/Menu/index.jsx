@@ -3,10 +3,10 @@ import React, {useState} from 'react'
 
 import {NavLink} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faUserAlt, faChevronRight, faPaperPlane, Topla, faBell, faGear, faBookmark, faChartSimple, faRightFromBracket, faHome, faCalendar, faCalendarMinus, faCalendarTimes, faMapLocationDot, faTableList, faPerson, faUsers, faPlane, faUserGroup, faCableCar, faCalendarDays } from '@fortawesome/free-solid-svg-icons';//faChevronCircleRight
+import {faUserAlt, faChevronRight, faPaperPlane, faBell, faGear, faRightFromBracket, faHome, faMapLocationDot, faPlane, faUserGroup, faCalendarDays } from '@fortawesome/free-solid-svg-icons';//faChevronCircleRight
 import './style.css'
 
-export function Header(props){
+export function Menu(props){
     return(
         <div>
             <div className="menuMobileButton" id={props.isOpen ? 'iMenuOpen' : 'iMenuClose'} onClick={props.onClick}>

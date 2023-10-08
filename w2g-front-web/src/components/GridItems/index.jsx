@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import * as Styled from './style'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBaseball, faBurger, faChampagneGlasses, faCity, faCloud, faFlag, faMasksTheater, faMoon, faMountainSun, faMusic, faParachuteBox, faPeopleGroup, faPlane, faPlantWilt, faSnowflake, faSun, faTelevision, faUmbrellaBeach, faUsers, faWater } from '@fortawesome/free-solid-svg-icons'
+import { faBaseball, faBurger, faChampagneGlasses, faCity, faFlag, faMasksTheater, faMoon, faMountainSun, faMusic, faParachuteBox, faPeopleGroup, faPlane, faPlantWilt, faSnowflake, faSun, faTelevision, faUmbrellaBeach, faUsers, faWater } from '@fortawesome/free-solid-svg-icons'
 import ImgGoldTrophy from '../../img/goldTrophy.png';
 import ImgSilverTrophy from '../../img/silverTrophy.png';
 import ImgBronzeTrophy from '../../img/bronzeTrophy.png';

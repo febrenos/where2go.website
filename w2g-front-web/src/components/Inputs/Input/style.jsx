@@ -7,10 +7,10 @@ export const Content = styled.div`
 
 export const Input = styled.input`
   border: 1px solid #00000000;
-  border-radius: 1rem;
+  border-radius: 10px;
   background: var(--bg-primary);
   padding: 10px;
-  font-size: 1rem;
+  font-size: 16px;
   color: var(--txt-primary);
   ${({ size }) => {
     switch (size) {
@@ -28,11 +28,11 @@ export const Input = styled.input`
   }}
   &:focus + label{
     transform: translateY(-1.5rem);
-    font-size: 0.8rem;
+    // font-size: 0.8rem;
     color: var(--primary-color);
   }
   &:focus{
-    border:2px solid var(--primary-color);
+    border: 2px solid var(--primary-color);
   }
   &:focus, &:valid {
     outline: none;
@@ -40,7 +40,7 @@ export const Input = styled.input`
 
   &:placeholder-shown + label {
     transform: translateY(1rem);
-    font-size: 1rem;
+    // font-size: 1rem;
     background:var(--danger-color);
   }
   &:-webkit-autofill + label{
@@ -68,6 +68,7 @@ export const Input = styled.input`
 `;
 
 export const Label = styled.label`
+  font-weight: 500;
   position: absolute;
   left: 15px;
   color: #f5f5f547;
@@ -75,5 +76,5 @@ export const Label = styled.label`
   transform: ${({ isFocus }) => isFocus ? 'translateY(-1.5rem)' : 'translateY(10px)'};
   background: ${({ isFocus }) => isFocus ? '' : ' var(--bg-primary)'};
   transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  font-size: ${({ isFocus }) => isFocus ? '0.8rem' : '1rem'};
+  // font-size: ${({ isFocus }) => isFocus ? '0.8rem' : '1rem'};
 `;

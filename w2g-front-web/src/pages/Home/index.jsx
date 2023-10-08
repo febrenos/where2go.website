@@ -1,24 +1,37 @@
 import React, { useState } from 'react'
-import { Btn, TimeLine, Header, CardApresentation, TitlePage } from '../../components/index'
-import './style.css'
+import { Menu, TitlePage, NavTab, SearchInput } from '../../components/index'
+// import * as Styled from './style.jsx'
+import { StyledContentLogged } from '../../style';
 
 export default function Home() {
     const [isOpen, setIsOpen] = useState(false);
+    const [getNavTab, setNavTab] = useState(1);
 
     return(
         <>
-        <main>
-            <Header isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}/> 
+            <Menu isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}/> 
             <div className={isOpen ? 'contentClose' : 'contentOpen'}>
-                <TitlePage Title={"Home"}/>
-                <Btn text="BtnSmall" borderColor={"#0c899f"} size="sm"/>
-                <Btn text="BtnMedium" borderColor={"#0c9f1e"} size="md"/>
-                <Btn text="BtnLarge" size="lg" disabled/>
-                <TimeLine steps={7} finished={6}/>
-                {/* <SelectBtns>TEst</SelectBtns> */}
-                <CardApresentation text="Get Started"/>
+            <TitlePage text={"Home"}/>
+            <StyledContentLogged>
+                        <NavTab tabs={['Viagens', 'Eventos', 'Locais']} activeTab={getNavTab} onTabClick={setNavTab}/>
+                        {getNavTab === 1 &&
+                            <>
+                                <SearchInput searchType="travel" placeholder="Buscar" />
+                            </>
+                        }
+                        {getNavTab === 2 &&
+                            <>
+                                <SearchInput searchType="travel" placeholder="Buscar" />
+                            </>
+                        }
+                        {getNavTab === 3 &&
+                            <>
+                                <SearchInput searchType="travel" placeholder="Buscar" />
+                            </>
+                        }
+                        
+            </StyledContentLogged>
             </div>
-        </main>
         </>
     )
 }

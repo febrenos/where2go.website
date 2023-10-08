@@ -1,6 +1,6 @@
 import React from "react";
 import * as Styled from './style.jsx';
-import {Btn} from '../../index.jsx'
+import {Button} from '../../index.jsx'
 
 
 export function CardApresentation({text}){
@@ -16,7 +16,7 @@ export function CardApresentation({text}){
       </Styled.Align>
       {/* <Styled.Content> */}
         <p>Stop guessing about your digital experience with LogRocket</p>
-        <Btn text="Get Started for free" borderColor={"#0c899f"}/>
+        <Button text="Get Started for free" borderColor={"#0c899f"}/>
       {/* </Styled.Content> */}
       </Styled.Card>
       

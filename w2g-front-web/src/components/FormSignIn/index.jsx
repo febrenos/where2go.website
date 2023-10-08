@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import {Input, Btn} from "../index";
+import {Input, Button} from "../index";
 import Logo from "../../img/where2GoTxt.png";
 import * as Styled from './style';
 
@@ -19,7 +19,7 @@ export function FormSignIn(){
                 <Styled.TextBold><Link to="/Signup">Cadastre-se</Link></Styled.TextBold>
             </div>
             <Link to="/Profile">
-                <Btn text="Login" size="md" solid/>
+                <Button text="Login" size="md" solid/>
             </Link>
         </Styled.Content>
         </Styled.All>

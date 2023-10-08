@@ -1,8 +1,10 @@
 import React from "react";
 import * as Styled from './style';
 
-export function TitlePage({Title}){
+export function TitlePage({text}){
     return(
-        <Styled.Title>{Title}</Styled.Title>
+        <Styled.All>
+            <Styled.Title>{text}</Styled.Title>
+        </Styled.All>
     )
 }

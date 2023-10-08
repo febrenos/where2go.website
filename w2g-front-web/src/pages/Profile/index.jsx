@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { StyledContentLogged, Gap, BackgroundCard } from '../../style'; 
+import { StyledContentLogged, Gap, BackgroundCard } from '../../style';
 import ImgUser from '../../img/user.png'
 import {
-    Header,
-    Title,
+    Menu,
     NavTab,
     Input,
     WordPreferences,
-    Btn,
+    Button,
     TitlePage,
     GridItems,
   } from '../../components/index';
@@ -21,10 +20,10 @@ export default function Profile() {
     return (
         <>
             {/* <main> */}
-                <Header isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}/> 
+                <Menu isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}/> 
                 <div className={isOpen ? 'contentClose' : 'contentOpen'}>
+                <TitlePage text={"Perfil"}/>
                 <StyledContentLogged>
-                        <TitlePage Title={"Perfil"}/>
                         <NavTab tabs={['Perfil', 'Preferências', 'Conquistas']} activeTab={getNavTab} onTabClick={setNavTab}/>
                         {getNavTab === 1 && (
                             <BackgroundCard>
@@ -39,8 +38,8 @@ export default function Profile() {
                                 <Input text={"Senha"}/>
                                 <Input text={"Confirmar senha"}/>
                                 <Gap>
-                                    <Btn text="Cancelar"/>
-                                    <Btn text="Salvar" solid={true} />
+                                    <Button text="Cancelar"/>
+                                    <Button text="Salvar" solid={true} />
                                 </Gap>
                             </BackgroundCard>
                         )}
@@ -48,8 +47,8 @@ export default function Profile() {
                             <BackgroundCard>
                                 <WordPreferences/>
                                 <Gap>
-                                    <Btn text="Cancelar"/>
-                                    <Btn text="Salvar" solid={true} />
+                                    <Button text="Cancelar"/>
+                                    <Button text="Salvar" solid={true} />
                                 </Gap>
                             </BackgroundCard>
                         )}
