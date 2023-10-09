@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as Global from '../style';
 import * as Styled from './style';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart as solidHeart, faBookmark as solidBookmark, faChevronDown, faCopy, faLink, faCalendarDays } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as solidHeart, faBookmark as solidBookmark, faChevronDown, faCopy, faLink, faCalendarDays, faFlag } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as regularHeart, faBookmark as regularBookmark } from '@fortawesome/free-regular-svg-icons';
 import DefaultImg from '../../../img/w2g2.png';
 
@@ -16,6 +16,9 @@ export function TravelCard({ list }) {
   const [isAgended, setIsAgended] = useState(list.isAgended);
   const [isAgendedOpen, setIsAgendedOpen] = useState(false);
 
+  const [isVisited, setIsVisited] = useState(list.isVisited);
+  const [isVisitedOpen, setIsVisitedOpen] = useState(false);
+
   function HandleClickSave() {
     setIsSave(!isSave);
   }
@@ -27,6 +30,7 @@ export function TravelCard({ list }) {
   function HandleClickShowMore() {
     setIsShowMore(!isShowMore);
   }
+
 
   function handleClickInformation() {
     const informationToCopy = `
@@ -58,9 +62,7 @@ export function TravelCard({ list }) {
   }
 
   function handleClickLink() {
-    const informationToCopy = `
-      *Where2Go:* https://localhost:3000/${list.id}
-    `;
+    const informationToCopy = `*Where2Go:* https://localhost:3000/${list.id}`;
 
     navigator.clipboard.writeText(informationToCopy)
     .then(() => {
@@ -80,6 +82,14 @@ export function TravelCard({ list }) {
     setIsAgendedOpen(true);
     setTimeout(() => {
       setIsAgendedOpen(false);
+    }, 2000);
+  }
+
+  function HandleClickVisited() {
+    setIsVisited(!isVisited);
+    setIsVisitedOpen(true);
+    setTimeout(() => {
+      setIsVisitedOpen(false);
     }, 2000);
   }
 
@@ -154,12 +164,18 @@ export function TravelCard({ list }) {
                   {!isAgended && <Styled.CopyText isClick={isAgendedOpen} isActive={isAgended}>Cancelado!</Styled.CopyText>}
                   <Styled.SwitchIcon icon={faCalendarDays} isClick={isAgendedOpen} />
                 </Styled.SwitchContent>
+                <Styled.SwitchContent isClick={isVisitedOpen} isActive={isVisited} onClick={HandleClickVisited}>
+                  {isVisited && <Styled.CopyText isClick={isVisitedOpen} isActive={isVisited} >Visitado!</Styled.CopyText>}
+                  {!isVisited && <Styled.CopyText isClick={isVisitedOpen} isActive={isVisited}>Cancelado!</Styled.CopyText>}
+                  <Styled.SwitchIcon icon={faFlag} isClick={isVisitedOpen} />
+                </Styled.SwitchContent>
               </Styled.IconsInline>
               </Styled.TextContent>
         <Global.ContentChevronDown onClick={HandleClickShowMore}>
           <Global.Icon icon={faChevronDown} isShowMore={isShowMore} />
         </Global.ContentChevronDown>
       </Global.Card>
+      
     </>
   );
 }

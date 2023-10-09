@@ -26,6 +26,7 @@ export const Bold = styled.p`
 export const IconsInline = styled.div`
     display:flex;
     justify-content:center;
+    flex-wrap:wrap;
     width:100%;
     gap:25px;
     padding-top:20px;
@@ -67,6 +68,7 @@ export const SwitchContent = styled.div`
     position: relative;
     font-size: 14px; /* Defina o tamanho da fonte aqui */
 `;
+
 export const SwitchIcon = styled(FontAwesomeIcon)`
     color: ${props => (props.isClick ? 'transparent' : 'var(--bg-secondary)')};
     font-size: 20px;

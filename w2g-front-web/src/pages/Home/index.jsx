@@ -23,8 +23,8 @@ export default function Home() {
           isLike: false,
           isSave: true,
           isCreatedBy:'luana_silva',
-          isVisited:false,
-          IsAgended:false,
+          isVisited:true,
+          isAgended:false,
           description: 'Embarked on a thrilling safari adventure in Africa, encountering majestic wildlife and breathtaking landscapes.'
         },
         {
@@ -43,7 +43,7 @@ export default function Home() {
           isSave: true,
           isCreatedBy:'fe.brenos',
           isVisited:false,
-          IsAgended:false,
+          isAgended:true,
           description: 'Participate in various extreme sports activities such as skydiving, bungee jumping, and rock climbing for an adrenaline-packed experience.'
         }
       ];

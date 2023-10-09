@@ -15,34 +15,34 @@ export function Menu(props){
             <ul className={props.isOpen ? 'menuOpen' : 'menuClose'}>
                 <li onClick={props.onClick}><FontAwesomeIcon className=" menuButton icon" icon={faChevronRight} id={props.isOpen ? 'iMenuOpen' : 'iMenuClose'}/></li>
                 <NavLink to={"/Profile"}>
-                    <li><FontAwesomeIcon className="icon" icon={faUserAlt}/><a href="/Profile">Perfil</a></li>
+                    <li><FontAwesomeIcon className="icon" icon={faUserAlt}/><a>Home</a>Perfil</li>
                 </NavLink>
                 <NavLink to={"/"}>
-                    <li><FontAwesomeIcon className="icon" icon={faHome}/><a href="/">Home</a></li>
+                    <li><FontAwesomeIcon className="icon" icon={faHome}/><a>Home</a></li>
                 </NavLink>
                 <NavLink to={"/ToPlan"}>
-                    <li><FontAwesomeIcon className="icon" icon={faMapLocationDot}/><a href="/ToPlan">Planejar</a></li>
+                    <li><FontAwesomeIcon className="icon" icon={faMapLocationDot}/><a>Planejar</a></li>
                 </NavLink>
                 <NavLink to={"/Travels"}>
-                    <li><FontAwesomeIcon className="icon" icon={faPlane}/><a href="/Travels">Viagens</a></li>
+                    <li><FontAwesomeIcon className="icon" icon={faPlane}/><a>Viagens</a></li>
                 </NavLink>
                 <NavLink to={"/People"}>
-                    <li><FontAwesomeIcon className="icon" icon={faUserGroup}/><a href="/People">Pessoas</a></li>
+                    <li><FontAwesomeIcon className="icon" icon={faUserGroup}/><a>Pessoas</a></li>
                 </NavLink>
                 <NavLink to={"/Notifications"}>
-                    <li><FontAwesomeIcon className="icon" icon={faBell}/><a href="/Notifications">Notificações</a></li>
+                    <li><FontAwesomeIcon className="icon" icon={faBell}/><a>Notificações</a></li>
                 </NavLink>
                 <NavLink to={"/Calendar"}>
-                    <li><FontAwesomeIcon className="icon" icon={faCalendarDays}/><a href="/Calendar">Calendário</a></li>
+                    <li><FontAwesomeIcon className="icon" icon={faCalendarDays}/><a>Calendário</a></li>
                 </NavLink>
                 <NavLink to={"/ChatBot"}>
-                    <li><FontAwesomeIcon className="icon" icon={faPaperPlane}/><a href="/ChatBot">Chatbot</a></li>
+                    <li><FontAwesomeIcon className="icon" icon={faPaperPlane}/><a>Chatbot</a></li>
                 </NavLink>
                 <NavLink to={"/Settings"}>
-                    <li><FontAwesomeIcon className="icon" icon={faGear}/><a href="/Settings">Configurações</a></li>
+                    <li><FontAwesomeIcon className="icon" icon={faGear}/><a>Configurações</a></li>
                 </NavLink>
                 <NavLink to={"/SignIn"}>
-                    <li id="logout"><FontAwesomeIcon className="icon" icon={faRightFromBracket}/><a href="/SignIn">Sair</a></li>
+                    <li id="logout"><FontAwesomeIcon className="icon" icon={faRightFromBracket}/><a>Sair</a></li>
                 </NavLink>
             </ul>
         </div>   

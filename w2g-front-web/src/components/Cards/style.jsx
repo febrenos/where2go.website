@@ -84,6 +84,7 @@ export const Icon = styled(FontAwesomeIcon)`
   position: absolute;
   top: 5px;
   left: 50%;
+  margin-left:-8px;
   z-index: 2;
   transform: rotate(${props => (props.isShowMore ? '180deg' : '0deg')});
 `;
