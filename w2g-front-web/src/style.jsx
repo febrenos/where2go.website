@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     --secondary-color: rgba(82, 112, 251, 0.39);
     --txt-primary: #8F8D98;
     --txt-secondary: #f5f5f547;
-    --txt-title: #fff;
+    --txt-title: #cecece;
     --success-color: #28a745;
     --danger-color: #c23846;
     --warning-color: #ffc107;

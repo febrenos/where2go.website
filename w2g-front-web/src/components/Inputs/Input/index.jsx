@@ -5,7 +5,6 @@ import * as Styled from './style.jsx';
 
 export function Input({text, type, size}) {
   const [isFocus, setIsFocus] = useState(false);
-  const [isFocusDate, setIsFocusDate] = useState(false);
   const handleInputBlur = (event) => {
     if (isFocus && event.target.value === '') {
       setIsFocus(false);

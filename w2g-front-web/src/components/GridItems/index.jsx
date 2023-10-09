@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import * as Styled from './style'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBaseball, faBurger, faChampagneGlasses, faCity, faFlag, faMasksTheater, faMoon, faMountainSun, faMusic, faParachuteBox, faPeopleGroup, faPlane, faPlantWilt, faSnowflake, faSun, faTelevision, faUmbrellaBeach, faUsers, faWater } from '@fortawesome/free-solid-svg-icons'
@@ -179,7 +179,7 @@ const achievements =
 
 
 export function GridItems({ size }) {
-    const [getRank, setRank] = useState('Prata');
+    // const [getRank, setRank] = useState('Prata');
     return (
       <Styled.ContentGrid>
         {achievements.map((item, index) => (

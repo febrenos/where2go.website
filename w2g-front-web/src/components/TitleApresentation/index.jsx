@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import * as Styled from './style.jsx';
 
 export function TitleApresentation() {
