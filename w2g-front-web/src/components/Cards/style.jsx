@@ -9,7 +9,7 @@ export const Card = styled.div`
   padding: ${props => (props.isShowMore ? '12px 20px 40px 20px' : '12px 20px')};
   background-color: var(--bg-secondary);
   border-radius: 32px;
-  height: ${props => (props.isShowMore ? '100%' : '120px')};
+  height: ${props => (props.isShowMore ? '100%' : '143px')};
   cursor: pointer;
   overflow: hidden;
   position: relative;

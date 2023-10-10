@@ -12,7 +12,7 @@ const alertList = [
     cardIndex: 4,
     title: 'Safari Adventure',
     date: '20/11/2023',
-    description: 'Embarked on a thrilling safari adventure in Africa, encountering majestic wildlife and breathtaking landscapes.'
+    description: 'Embarked on a thrilling safari adventure in Africa, encountering majestic wildlife and breathtaking landscapes wwwww wwwwwww w w w w w w w w w ww w w w w  w  w w w ww w w w.'
   },
   {
     cardIndex: 5,

@@ -88,7 +88,26 @@ export const TextContent = styled.div`
     display: flex;
     flex-direction: column;
     gap: 3px;
-    transition:2s;
+    transition: 2s;
     margin-top: 20px;
     opacity: ${props => (props.isShowMore ? '1' : '0')};
+
+    & > :nth-last-child(2) {
+        padding-top: 10px; /* Adapte o valor conforme necessário */
+    }
+`;
+
+export const VisitedByMe = styled.div`
+display: flex;
+gap: 5px;
+align-items: baseline;
+& > *{
+    color: ${props => (props.isVisitedByMe ? 'var(--primary-color)' : '')};
+}
+`
+export const LikeContentBottom = styled.div`
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: var(--primary-color);
 `;
