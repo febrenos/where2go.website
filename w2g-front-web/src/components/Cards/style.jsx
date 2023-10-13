@@ -44,6 +44,7 @@ export const TextContent = styled.div`
 export const Title = styled.h4`
   font-weight: 600;
   font-size: 20px;
+  color: var(--txt-title);
 `;
 
 export const Date = styled.p`

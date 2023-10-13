@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ImgPerfil = styled.img`
+export const ImgProfile = styled.img`
  width:130px;
 `
 export const Center = styled.div`

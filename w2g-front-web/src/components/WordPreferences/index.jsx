@@ -113,11 +113,11 @@ export function WordPreferences({list}) {
       });
       return updatedActive;
     });
-  }, [isShowMore]);
+  }, [isShowMore, list]);
 
   return (
     <Styled.Content>
-      <Text text={'Preferências'} bold />
+      <Text text={'Preferências'} bold size={'lg'}/>
       <Styled.ContentWords>
         {displayList.map((item, index) => (
           <Styled.Button

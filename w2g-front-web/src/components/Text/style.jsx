@@ -8,7 +8,9 @@ export const StyledText = styled.div`
       case 'md':
         return '16px';
       case 'lg':
-        return '24px';
+        return '20px';
+      case 'xlg':
+          return '24px';
       default:
         return '16px'; // Tamanho padrão: médio
     }

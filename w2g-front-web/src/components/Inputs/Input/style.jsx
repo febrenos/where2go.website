@@ -6,7 +6,7 @@ export const Content = styled.div`
 `;
 
 export const Input = styled.input`
-  border: 1px solid #00000000;
+  border: 2px solid #00000000;
   border-radius: 10px;
   background: var(--bg-primary);
   padding: 10px;
