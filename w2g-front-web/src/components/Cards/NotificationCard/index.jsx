@@ -6,7 +6,7 @@ import DefaultImg from '../../../img/w2g2.png';
 
 
 export function NotificationCard({ list }) {
-  const [isClose, setIsClose] = useState(false);
+  const [isOcult, setIsisOcult] = useState(false);
   const [isShowMore, setIsShowMore] = useState(false);
 
   function HandleClickShowMore() {
@@ -15,7 +15,7 @@ export function NotificationCard({ list }) {
 
   return (
     <>
-      {!isClose && (
+      {!isOcult && (
         <Styled.Card isShowMore={isShowMore}>
           <Styled.Content>
             <Styled.Flex>
@@ -28,9 +28,9 @@ export function NotificationCard({ list }) {
                 <Styled.Text>{list.description}</Styled.Text>
               </Styled.TextContent>
             </Styled.Flex>
-            <Styled.ContentIcon onClick={() => setIsClose(true)}>
+            <Styled.ContentIconClose onClick={() => setIsisOcult(true)}>
               <FontAwesomeIcon icon={faClose} />
-            </Styled.ContentIcon>
+            </Styled.ContentIconClose>
           </Styled.Content>
           <Styled.ContentChevronDown onClick={HandleClickShowMore}>
             <Styled.Icon icon={faChevronDown} isShowMore={isShowMore} />

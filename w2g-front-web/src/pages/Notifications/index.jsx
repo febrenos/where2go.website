@@ -45,7 +45,7 @@ const alertList = [
         <>
             <Menu isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}/> 
             <div className={isOpen ? 'contentClose' : 'contentOpen'}>
-            <TitlePage text={"Notificaçoes"}/>
+            <TitlePage text={"Notificações"}/>
             <StyledContentLogged>
                 <NotificationCardList list={alertList} />
             </StyledContentLogged>

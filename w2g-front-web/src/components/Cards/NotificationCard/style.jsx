@@ -68,6 +68,10 @@ justify-content:center;
   font-size: 20px;
   width:50px;
   height:30px;
+  transition:1s;
+  &:hover {
+    transform: rotate(380deg);
+  }
 `;
 
 export const Icon = styled(FontAwesomeIcon)`

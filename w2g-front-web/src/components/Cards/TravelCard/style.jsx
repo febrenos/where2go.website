@@ -23,6 +23,11 @@ export const Bold = styled.p`
     font-size: 17px;
 `;
 
+export const DescriptionText = styled.p`
+  font-size: 16px;
+  width:200px
+`;
+
 export const IconsInline = styled.div`
     display:flex;
     justify-content:center;

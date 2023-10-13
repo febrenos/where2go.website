@@ -2,7 +2,7 @@ import React from 'react';
 import * as Styled from '../NotificationCardList/style';
 import { TravelCard } from '../../index';
 
-export function TravelCardList({ list }) {
+export function TravelCardList({ list, type }) {
 
   return (
     <Styled.Cards>
@@ -10,6 +10,7 @@ export function TravelCardList({ list }) {
         <TravelCard
             key={index}
             list={item}
+            type={type}
         />
       ))}
     </Styled.Cards>

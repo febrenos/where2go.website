@@ -7,7 +7,10 @@ import { faHeart as regularHeart, faBookmark as regularBookmark } from '@fortawe
 import DefaultImg from '../../../img/w2g2.png';
 
 export function TravelCard({ list, type}) {
+  const [isOcult, setIsOcult] = useState(false);
+  const [getIsLike,] = useState(list.isLike);
   const [isLike, setIsLike] = useState(list.isLike);
+  const [likeCounter, setLikeCounter] = useState(list.like);
   const [isSave, setIsSave] = useState(list.isSave);
   const [isShowMore, setIsShowMore] = useState(false);
   const [isCopy, setIsCopy] = useState(false);
@@ -16,23 +19,38 @@ export function TravelCard({ list, type}) {
   const [isAgended, setIsAgended] = useState(list.isAgended);
   const [isAgendedOpen, setIsAgendedOpen] = useState(false);
 
-  const [isVisited, setIsVisited] = useState(false);
+  const [isVisited, setIsVisited] = useState(list.isVisited);
   const [isVisitedOpen, setIsVisitedOpen] = useState(false);
-  const [visitedConter, setVisitedConter] = useState(list.visitedByMe);
+  const [visitedCounter, setVisitedCounter] = useState(list.visitedByMe);
 
   const HandleClickVisited =  () => {
     setIsVisited((prev) => !prev)
+    setTimeout(() => {
+      HandleClickShowMore();
+    }, 2500);
+
+    setTimeout(() => {
+      setIsOcult(true);
+    }, 4500);
   }
 
   useEffect(() => {
     isVisited && setIsAgended(false);
-    isVisited ? setVisitedConter(list.visitedByMe+1) : setVisitedConter(list.visitedByMe);
+    isVisited ? setVisitedCounter(list.visitedByMe+1) : setVisitedCounter(list.visitedByMe);
     setIsVisitedOpen(true);
     setTimeout(() => {
       setIsVisitedOpen(false);
     }, 2000);
   },[isVisited, list])//toda vez que for alterado roda a funcao 
 
+  useEffect(() => {
+    (!getIsLike && !isLike) && setLikeCounter(list.like);
+    (!getIsLike && isLike) && setLikeCounter(list.like+1);
+
+    (getIsLike && isLike) && setLikeCounter(list.like);
+    (getIsLike && !isLike) && setLikeCounter(list.like-1);
+    console.log(list.like)
+  },[isLike,getIsLike, list])
 
   function HandleClickSave() {
     setIsSave(!isSave);
@@ -45,7 +63,6 @@ export function TravelCard({ list, type}) {
   function HandleClickShowMore() {
     setIsShowMore(!isShowMore);
   }
-
 
   function handleClickInformation() {
     const informationToCopy = `
@@ -96,27 +113,26 @@ export function TravelCard({ list, type}) {
   }
 
   function HandleClickAgended() {
+    if (isAgended && type === 'agended') {
+      setTimeout(() => {
+        HandleClickShowMore();
+      }, 2500);
+  
+      setTimeout(() => {
+        setIsOcult(true);
+      }, 4500);
+    }
     setIsAgended(!isAgended);
     setIsAgendedOpen(true);
     setTimeout(() => {
       setIsAgendedOpen(false);
     }, 2000);
   }
-
-  // function HandleClickVisited() {
-  //   setIsVisited(!isVisited);
-  //   isVisited ? setVisitedConter(list.visitedByMe) : setVisitedConter(list.visitedByMe+1);
-  //   !isVisited && setIsAgended(false);// ???????
-  //   setIsVisitedOpen(true);
-  //   setTimeout(() => {
-  //     setIsVisitedOpen(false);
-  //   }, 2000);
-  //   console.log(list.visitedByMe)
-  // }
-
+  
 
   return (
     <>
+    {!isOcult && (
       <Global.Card isShowMore={isShowMore}>
         <Global.Content>
           <Styled.FlexTop>
@@ -132,7 +148,7 @@ export function TravelCard({ list, type}) {
                 </Styled.Flex>
                 <Styled.LikeContentBottom>
                   <FontAwesomeIcon icon={solidHeart} />
-                  {list.like}
+                  {likeCounter}
                 </Styled.LikeContentBottom>
             </Styled.GridTop>
           </Styled.FlexTop>
@@ -176,7 +192,7 @@ export function TravelCard({ list, type}) {
               </Styled.Flex>
               <Styled.VisitedByMe isVisitedByMe={list.visitedByMe > 0}>
                 <Styled.Bold>Visitado por você:</Styled.Bold>
-                <Global.Text>{`${visitedConter} Vez(es)`}</Global.Text>
+                <Global.Text>{`${visitedCounter} Vez(es)`}</Global.Text>
               </Styled.VisitedByMe>
               <Styled.Flex>
                 <Styled.Bold>Links:</Styled.Bold>
@@ -193,14 +209,14 @@ export function TravelCard({ list, type}) {
                   <Styled.CopyIcon icon={faCopy} isClick={isCopy} />
                 </Styled.CopyContent>
                 <Styled.SwitchContent isClick={isAgendedOpen} isActive={isAgended} onClick={HandleClickAgended}>
-                  {isAgended && <Styled.CopyText isClick={isAgendedOpen} isActive={isAgended} >Agendado!</Styled.CopyText>}
-                  {!isAgended && <Styled.CopyText isClick={isAgendedOpen} isActive={isAgended}>Cancelado!</Styled.CopyText>}
+                  {isAgended && <Styled.CopyText isClick={isAgendedOpen} isActive={isAgended} >Agendado</Styled.CopyText>}
+                  {!isAgended && <Styled.CopyText isClick={isAgendedOpen} isActive={isAgended}>Cancelado</Styled.CopyText>}
                   <Styled.SwitchIcon icon={faCalendarDays} isClick={isAgendedOpen} />
                 </Styled.SwitchContent>
-                {true  &&
+                {type === 'agended'  &&
                   <Styled.SwitchContent isClick={isVisitedOpen} isActive={isVisited} onClick={HandleClickVisited}>
-                    {isVisited && <Styled.CopyText isClick={isVisitedOpen} isActive={isVisited} >Visitado!</Styled.CopyText>}
-                    {!isVisited && <Styled.CopyText isClick={isVisitedOpen} isActive={isVisited}>Cancelado!</Styled.CopyText>}
+                    {isVisited && <Styled.CopyText isClick={isVisitedOpen} isActive={isVisited} >Visitado</Styled.CopyText>}
+                    {!isVisited && <Styled.CopyText isClick={isVisitedOpen} isActive={isVisited}>Cancelado</Styled.CopyText>}
                     <Styled.SwitchIcon icon={faFlag} isClick={isVisitedOpen} />
                   </Styled.SwitchContent>
                 }
@@ -210,7 +226,7 @@ export function TravelCard({ list, type}) {
           <Global.Icon icon={faChevronDown} isShowMore={isShowMore} />
         </Global.ContentChevronDown>
       </Global.Card>
-      
-    </>
+    )}
+  </>
   );
 }

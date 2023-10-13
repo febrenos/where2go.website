@@ -99,26 +99,33 @@ padding: 0 20px 0 0;
 `;
 
 export const BackgroundCard = styled.div`
-display:flex;
-flex-direction:column;
-justify-content:center;
-background-color:var(--bg-secondary);
-width:fit-content;
-height: fit-content;
-border-radius:32px;
-padding:30px;
-@media(width < 768px){
-    width:100%;
-}
-`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--bg-secondary);
+  width: fit-content;
+  height: fit-content;
+  border-radius: 32px;
+  gap: 40px;
+  padding: 30px;
+
+  /* Conditionally apply styles based on the mobile prop */
+  width: ${(props) => (props.mobile ? '100%' : 'auto')};
+  max-width: ${(props) => (props.mobile ? '400px' : '1200px')};
+
+  @media (max-width: 768px) {
+    width: ${(props) => (props.mobile ? '100%' : 'auto')};
+    max-width: ${(props) => (props.mobile ? '400px' : 'none')};
+  }
+`;
 
 export const Gap = styled.div`
   display:flex;
   flex-wrap:wrap;
-  padding: 50px 0 0 0;
+  // padding: 50px 0 0 0;
   gap:20px;
+  justify-content:center;
   @media(width > 768px){
     flex-direction:row;
-    justify-content:center;
   }
 `

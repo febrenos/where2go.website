@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Content = styled.div`
   position: relative;
-  padding: 30px 0 0 0;
+  // padding: 30px 0 0 0;
 `;
 
 export const Input = styled.input`

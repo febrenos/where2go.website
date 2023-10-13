@@ -66,8 +66,16 @@ justify-content:center;
   cursor: pointer;
   color: ${props => (props.isCheck ? 'var(--primary-color)' : 'var(--txt-primary)')};
   font-size: 20px;
-  width:50px;
+  padding:10px 10px 10px 10px;
   height:30px;
+`;
+
+export const ContentIconClose = styled(ContentIcon)`
+&:hover svg{
+  color: var(--danger-color);
+  transition:.7s;
+  transform:rotate(180deg);
+}
 `;
 
 export const Icons = styled.div`

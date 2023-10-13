@@ -10,23 +10,6 @@ color: var(--txt-primary);
 padding: 0 0 3px 20px;
 `
 
-export const Content = styled.div`
-width: 400px;
-max-width: 480px;
-background: var(--bg-secondary);
-border-radius: 32px;
-padding: 30px;
-flex-direction: column;
-justify-content: center;
-text-align:center;
-display: flex;
-gap:30px;
-@media(width < 768px){
-    width: 100%;
-    padding: 50px 20px 40px 20px;
-}
-`
-
 export const Text = styled.p`
     color: var(--txt-primary);
     text-align:center;
@@ -43,6 +26,7 @@ export const TextBold = styled.p`
 
 export const Img = styled.img`
     width:100%;
+    padding-bottom:40px;
 `
 
 export const A = styled.a`

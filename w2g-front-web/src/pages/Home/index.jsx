@@ -23,9 +23,10 @@ export default function Home() {
           like:200,
           isLike: false,
           isSave: true,
-          createdBy:'luan.s',
           isCreatedByMe:false,
           isAgended:false,
+          isVisited:false,
+          createdBy:'luan.s',
           visitedByPeople:10,
           visitedByMe:2,
           description: 'Embarked on a thrilling safari adventure in Africa, encountering majestic wildlife and breathtaking landscapes.'
@@ -45,9 +46,10 @@ export default function Home() {
           like:9,
           isLike: true,
           isSave: true,
-          createdBy:'fe.brenos',
           isCreatedByMe:true,
           isAgended:true,
+          isVisited:false,
+          createdBy:'fe.brenos',
           visitedByPeople:10,
           visitedByMe:0,
           description: 'Participate in various extreme sports activities such as skydiving, bungee jumping, and rock climbing for an adrenaline-packed experience.'

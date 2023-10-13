@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import Logo from "../../img/where2GoTxt.png";
 import {Button, Input} from '../index';
 import * as Styled from '../FormSignIn/style';
+import { BackgroundCard } from "../../style";
 
 export function FormSignUp(){
     return(
         <Styled.All>
             <Styled.Title>Registro</Styled.Title>
-            <Styled.Content>
+            <BackgroundCard mobile>
                 <Styled.Img src={Logo}/>
-                <div>
                     <Input text="Nome usuário" type="text"/>
                     <Input text="Nome" type="text"/>
                     <Input text="Cpf" type="text"/>
@@ -18,7 +18,6 @@ export function FormSignUp(){
                     <Input text="Senha" type="password"/>
                     <Input text="Confirme a senha" type="password"/>
                     <Input text="Data Nascimento" type="date"/>
-                </div>
                 <div>
                     <p>Ao se registrar, você aceita nossos
                     <Styled.A target="_blank" rel="noopener noreferrer" href="https://google.com.br/terms"> termos de uso </Styled.A>
@@ -31,7 +30,7 @@ export function FormSignUp(){
                     <Styled.TextBold><Link to="/SignIn">Login</Link></Styled.TextBold>
                 </div>
                 <Button text="Cadastrar" size="md" solid/>
-            </Styled.Content>
+            </BackgroundCard>
         </Styled.All>
     )
 }

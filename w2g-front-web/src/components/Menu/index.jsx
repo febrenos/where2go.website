@@ -15,7 +15,7 @@ export function Menu(props){
             <ul className={props.isOpen ? 'menuOpen' : 'menuClose'}>
                 <li onClick={props.onClick}><FontAwesomeIcon className=" menuButton icon" icon={faChevronRight} id={props.isOpen ? 'iMenuOpen' : 'iMenuClose'}/></li>
                 <NavLink to={"/Profile"}>
-                    <li><FontAwesomeIcon className="icon" icon={faUserAlt}/><a>Home</a>Perfil</li>
+                    <li><FontAwesomeIcon className="icon" icon={faUserAlt}/><a>Home</a></li>
                 </NavLink>
                 <NavLink to={"/"}>
                     <li><FontAwesomeIcon className="icon" icon={faHome}/><a>Home</a></li>
