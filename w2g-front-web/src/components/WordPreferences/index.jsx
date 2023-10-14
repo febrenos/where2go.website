@@ -2,89 +2,9 @@ import React, { useEffect, useState } from 'react';
 import * as Styled from './style';
 import { Text } from '../index';
 
-const words = [
-  {
-    nome: 'Sol',
-    isActive: true,
-  },
-  {
-    nome: 'Clássico',
-    isActive: true,
-  },
-  {
-    nome: 'Música',
-    isActive: true,
-  },
-  {
-    nome: 'Histórico',
-    isActive: false,
-  },
-  {
-    nome: 'Comida',
-    isActive: true,
-  },
-  {
-    nome: 'Ar livre',
-    isActive: false,
-  },
-  {
-    nome: 'Água',
-    isActive: false,
-  },
-  {
-    nome: 'Natureza',
-    isActive: false,
-  },
-  {
-    nome: 'Esporte',
-    isActive: true,
-  },
-  {
-    nome: 'Aventura',
-    isActive: false,
-  },
-  {
-    nome: 'Relaxamento',
-    isActive: false,
-  },
-  {
-    nome: 'Cultura',
-    isActive: false,
-  },
-  {
-    nome: 'Praia',
-    isActive: true,
-  },
-  {
-    nome: 'Montanha',
-    isActive: false,
-  },
-  {
-    nome: 'Cidade',
-    isActive: false,
-  },
-  {
-    nome: 'Inverno',
-    isActive: false,
-  },
-  {
-    nome: 'Verão',
-    isActive: true,
-  },
-  {
-    nome: 'Outono',
-    isActive: false,
-  },
-  {
-    nome: 'Primavera',
-    isActive: false,
-  },
-];
-
 export function WordPreferences({list}) {
-  list=words
   const initialIsActiveState = list.reduce((acc, word) => {
-    acc[word.nome] = word.isActive;
+    acc[word.name] = word.isActive;
     return acc;
   }, {});
 
@@ -109,7 +29,7 @@ export function WordPreferences({list}) {
     setIsActive((prevIsActive) => {
       const updatedActive = { ...prevIsActive };
       list.forEach((word) => {
-        updatedActive[word.nome] = word.isActive;
+        updatedActive[word.name] = word.isActive;
       });
       return updatedActive;
     });
@@ -117,15 +37,15 @@ export function WordPreferences({list}) {
 
   return (
     <Styled.Content>
-      <Text text={'Preferências'} bold size={'lg'}/>
+      <Text text={'Preferências'} size={'lg'} bold/>
       <Styled.ContentWords>
         {displayList.map((item, index) => (
           <Styled.Button
             key={index}
-            onClick={() => handleClick(item.nome)}
-            isActive={isActive[item.nome]}
+            onClick={() => handleClick(item.name)}
+            isActive={isActive[item.name]}
           >
-            {item.nome}
+            {item.name}
           </Styled.Button>
         ))}
         {list.length > 8 && (

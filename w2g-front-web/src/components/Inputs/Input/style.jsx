@@ -74,7 +74,7 @@ export const Label = styled.label`
   color: #f5f5f547;
   pointer-events: none;
   transform: ${({ isFocus }) => isFocus ? 'translateY(-1.5rem)' : 'translateY(10px)'};
-  background: ${({ isFocus }) => isFocus ? '' : ' var(--bg-primary)'};
+  background: transparent;
   transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
   // font-size: ${({ isFocus }) => isFocus ? '0.8rem' : '1rem'};
 `;

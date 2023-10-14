@@ -62,7 +62,6 @@ export default function Home() {
             <div className={isOpen ? 'contentClose' : 'contentOpen'}>
             <TitlePage text={"Home"}/>
             <StyledContentLogged>
-                        <NavTab tabs={['Viagens', 'Eventos', 'Locais']} activeTab={getNavTab} onTabClick={setNavTab}/>
                         {getNavTab === 1 &&
                             <>
                                 <SearchInput searchType="travel" placeholder="Buscar" />

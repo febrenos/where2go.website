@@ -21,8 +21,91 @@ const userProfileData = {
   email: 'felipesugisawa1',
   cpf: '527.346.738.19',
   phone: '11 968651661',
+  cep: '03737-000',
   password: 'testpassword',
-  confirmPassword: 'testpassword'
+  confirmPassword: 'testpassword',
+  wordPreferences:[
+    {
+      name: 'Sol',
+      isActive: true,
+    },
+    {
+      name: 'Clássico',
+      isActive: true,
+    },
+    {
+      name: 'Música',
+      isActive: true,
+    },
+    {
+      name: 'Histórico',
+      isActive: false,
+    },
+    {
+      name: 'Comida',
+      isActive: true,
+    },
+    {
+      name: 'Ar livre',
+      isActive: false,
+    },
+    {
+      name: 'Água',
+      isActive: false,
+    },
+    {
+      name: 'Natureza',
+      isActive: false,
+    },
+    {
+      name: 'Esporte',
+      isActive: true,
+    },
+    {
+      name: 'Aventura',
+      isActive: false,
+    },
+    {
+      name: 'Relaxamento',
+      isActive: false,
+    },
+    {
+      name: 'Cultura',
+      isActive: false,
+    },
+    {
+      name: 'Praia',
+      isActive: true,
+    },
+    {
+      name: 'Montanha',
+      isActive: false,
+    },
+    {
+      name: 'Cidade',
+      isActive: false,
+    },
+    {
+      name: 'Inverno',
+      isActive: false,
+    },
+    {
+      name: 'Verão',
+      isActive: true,
+    },
+    {
+      name: 'Outono',
+      isActive: false,
+    },
+    {
+      name: 'Primavera',
+      isActive: false,
+    },
+    {
+      name: 'Escalada',
+      isActive: true,
+    },
+  ]
 };
 
 export default function Profile() {
@@ -36,6 +119,7 @@ export default function Profile() {
   const [phone, setPhone] = useState(userProfileData.phone);
   const [password, setPassword] = useState(userProfileData.password);
   const [confirmPassword, setConfirmPassword] = useState(userProfileData.confirmPassword);
+  const [cep, setCep] = useState(userProfileData.cep);
 
   // Set initial values when the component is loaded
   useEffect(() => {
@@ -46,6 +130,7 @@ export default function Profile() {
     setPhone(userProfileData.phone);
     setPassword(userProfileData.password);
     setConfirmPassword(userProfileData.confirmPassword);
+    setCep(userProfileData.cep);
   }, []);
 
   return (
@@ -60,20 +145,17 @@ export default function Profile() {
             </Styled.Center>
             {/* Setting initial values for inputs */}
             <Input text={'Nickname'} value={nickname} onChange={(e) => setNickname(e.target.value)}/>
-            <Input text={"Name"} value={name} onChange={(e) => setName(e.target.value)} />
+            <Input text={"Nome"} value={name} onChange={(e) => setName(e.target.value)} />
             <Input text={"Email"} value={email} onChange={(e) => setEmail(e.target.value)} />
             <Input text={"CPF"} value={cpf} onChange={(e) => setCpf(e.target.value)} />
-            <Input text={"Phone"} value={phone} onChange={(e) => setPhone(e.target.value)} />
-            <Input text={"Password"} value={password} onChange={(e) => setPassword(e.target.value)} />
-            <Input
-              text={"Confirm password"}
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            />
-            <WordPreferences />
+            <Input text={"Telefone"} value={phone} onChange={(e) => setPhone(e.target.value)} />
+            <Input text={"CEP"} value={cep} onChange={(e) => setCep(e.target.value)} />
+            <Input text={"Senha"} value={password} onChange={(e) => setPassword(e.target.value)} />
+            <Input text={"Confirma senha"} value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
+            <WordPreferences list={userProfileData.wordPreferences}/>
             <Gap>
-              <Button text="Cancel" />
-              <Button text="Save" solid />
+              <Button text="Cancelar" />
+              <Button text="Salvar" solid />
             </Gap>
           </BackgroundCard>
         </StyledContentLogged>

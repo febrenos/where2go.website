@@ -3,8 +3,22 @@ import styled from 'styled-components';
 export const Content = styled.div`
   display: flex;
   gap: ${(props) => (props.column ? '0' : '10px')};
-  flex-direction: ${(props) => (props.column ? 'column' : 'row')};
+  flex-direction: ${(props) => (props.column ? 'column' : 'row-reverse')};
   align-items: center; /* Align items to center vertically */
+  justify-content: ${(props) => {
+    switch (props.align) {
+      case 'center':
+        return 'center';
+      case 'left':
+        return 'flex-end';
+      case 'right':
+      default:
+        return 'flex-start';
+    }
+  }};
+  // @media (max-width: 768px) {
+  //   flex-direction: column;
+  // }
 `;
 
 export const SwitchContainer = styled.label`
@@ -17,7 +31,7 @@ export const SwitchContainer = styled.label`
       case 'sm':
         return '40px';
       default:
-        return '60px'; // default to medium (md)
+        return '50px'; // default to medium (md)
     }
   }};
   height: ${(props) => (props.size === 'sm' ? '24px' : '34px')};

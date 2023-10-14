@@ -87,7 +87,7 @@ export const GlobalStyle = createGlobalStyle`
 `;
 
 export const StyledContentLogged = styled.div`
-padding: 0 20px 0 0;
+padding: 0 20px 60px 0;
 & > *{
   padding: 0 0 40px 0;
 }

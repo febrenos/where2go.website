@@ -2,40 +2,38 @@ import React from 'react';
 import { Text } from '../../index';
 import * as Styled from './style';
 
-const RadioButton = ({ label, value, name, checked, onChange }) => {
+const CheckboxItem = ({ label, value, name, checked, onChange }) => {
   return (
-    <Styled.RadioButtonWrapper>
+    <Styled.CheckboxWrapper>
       <input
-        type="radio"
+        type="checkbox"
         name={name}
         value={value}
         checked={checked}
         onChange={onChange}
       />
-      <div className="radio"></div>
+      <div className="checkbox"></div>
       {label}
-    </Styled.RadioButtonWrapper>
+    </Styled.CheckboxWrapper>
   );
 };
-
-export function Radio({title='Tipo', options, selectedValue, onValueChange }){
+//
+export function Checkbox({ title = 'Escolha', options, selectedValues, onValueChange }) {
   return (
     <Styled.Content>
-      <Text text={title} size={'md'} bold/>
+      <Text text={title} size={'lg'} bold />
       <div>
         {options.map((option) => (
-          <RadioButton
+          <CheckboxItem
             key={option.value}
             label={option.label}
             value={option.value}
             name={option.name}
-            checked={selectedValue === option.value}
+            checked={selectedValues.includes(option.value)}
             onChange={() => onValueChange(option.value)}
           />
         ))}
       </div>
     </Styled.Content>
   );
-};
-
-export default Radio;
+}

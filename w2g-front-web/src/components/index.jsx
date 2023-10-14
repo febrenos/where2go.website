@@ -1,5 +1,5 @@
 export { Button } from './Buttons/Button';
-export { BackButton } from './Buttons/BackButton';
+export { TextIcon } from './Buttons/TextIcon';
 export { CardApresentation } from './Cards/CardApresentation';
 export { FormSignIn } from './FormSignIn';
 export { FormSignUp } from './FormSignUp';
@@ -24,5 +24,6 @@ export { PeopleCardList } from './CardsList/PeopleCardList';
 export { TravelCard } from './Cards/TravelCard';
 export { PerssonCard } from './Cards/PerssonCard';
 export { TravelCardList } from './CardsList/TravelCardList';
-export { Switch } from './Buttons/Switch';
-export { Radio } from './Buttons/Radio';
+export { Switch } from './Inputs/Switch';
+export { Radio } from './Inputs/Radio';
+export { Checkbox } from './Inputs/Checkbox';

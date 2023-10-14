@@ -3,19 +3,31 @@ import { Menu, TitlePage, NavTab, SearchInput, Input, Button, Switch, Radio } fr
 // import * as Styled from './style.jsx'
 import { BackgroundCard, Gap, StyledContentLogged } from '../../style';
 
-const options = [
+const trajectoryType = [
     { label: 'Viagem', value: 'option1', name: 'options' },
     { label: 'Evento', value: 'option2', name: 'options' },
     { label: 'Local', value: 'option3', name: 'options' },
   ];
 
+const transport = [
+    { label: 'Avião', value: 'aviao', name: 'options' },
+    { label: 'Ônibus', value: 'onibus', name: 'options' },
+    { label: 'Trem/metro', value: 'trem', name: 'options' },
+    { label: 'A pé', value: 'aPe', name: 'options' },
+];
+
 export default function ToPlan() {
     const [isOpen, setIsOpen] = useState(false);
     const [getNavTab, setNavTab] = useState(1);
-    const [selectedOption, setSelectedOption] = useState('option1');
-
-    const handleOptionChange = (value) => {
-      setSelectedOption(value);
+    const [selectedTrajectoryType, setSelectedTrajectoryType] = useState('option1');
+    const [selectedTransport, setSelectedTransport] = useState('aviao');
+  
+    const handleTrajectoryTypeChange = (value) => {
+      setSelectedTrajectoryType(value);
+    };
+  
+    const handleTransportChange = (value) => {
+      setSelectedTransport(value);
     };
 
     return(
@@ -29,7 +41,7 @@ export default function ToPlan() {
                             <>
                                 <BackgroundCard>
                                     <Switch enabled={['IA Neurotrix','IA Chat GPT']} size={'sm'}/>
-                                    <Button text="Gerar inputs" size={'lg'}/>
+                                    <Button text="Gerar inputs" size={'lg'} align={'left'}/>
                                     <Input text={"Título"}/>
                                     <Input text={"Local"}/>
                                     <Input text={"Preço estimado"}/>
@@ -41,10 +53,18 @@ export default function ToPlan() {
                                     <Input text={"Duração"}/>
                                     <Input text={"Links"}/>
                                     <Input text={"Descrição"}/>
-                                    <Radio title={'Tipo trajeto'}
-                                        options={options}
-                                        selectedValue={selectedOption}
-                                        onValueChange={handleOptionChange}
+
+                                    <Radio
+                                        title={'Tipo trajeto'}
+                                        options={trajectoryType}
+                                        selectedValue={selectedTrajectoryType}
+                                        onValueChange={handleTrajectoryTypeChange}
+                                    />
+                                    <Radio
+                                        title={'Transporte'}
+                                        options={transport}
+                                        selectedValue={selectedTransport}
+                                        onValueChange={handleTransportChange}
                                     />
                                         <Button text="Criar com IA" />
                                     <Gap>
