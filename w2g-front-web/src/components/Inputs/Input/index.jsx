@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import * as Styled from './style';
 
-export function Input({ text, type, size, value, onChange }) {
+export function Input({ text, type, size, value, onChange, placeholder, onKeyDown }) {
   const [isFocus, setIsFocus] = useState(false);
 
   useEffect(() => {
-    setIsFocus(!!value);
-    // (value === '' && isFocus) && setIsBackground(false);
-    // (value === '' && !isFocus) && setIsBackground(true);
-  }, [value]);
+    if (value || type === 'date') {
+      setIsFocus(true);
+    } else {
+      setIsFocus(false);
+    }
+  }, [value, type]);
 
   const handleInputBlur = (event) => {
     if (isFocus && event.target.value === '') {
@@ -31,8 +33,10 @@ export function Input({ text, type, size, value, onChange }) {
         autoComplete="off"
         onFocus={() => setIsFocus(true)}
         onBlur={handleInputBlur}
-        onChange={onChange}  // Pass the onChange handler
+        onChange={onChange}
         isFocus={isFocus}
+        placeholder={placeholder}
+        onKeyDown={onKeyDown}
       />
       <Styled.Label htmlFor={text} isFocus={isFocus}>
         {text}
@@ -40,3 +44,5 @@ export function Input({ text, type, size, value, onChange }) {
     </Styled.Content>
   );
 }
+
+

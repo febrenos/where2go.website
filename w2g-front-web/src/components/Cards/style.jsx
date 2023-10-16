@@ -10,7 +10,6 @@ export const Card = styled.div`
   background-color: var(--bg-secondary);
   border-radius: 32px;
   height: ${props => (props.isShowMore ? '100%' : '143px')};
-  cursor: pointer;
   overflow: hidden;
   position: relative;
   @media(min-width: 768px){
@@ -103,6 +102,7 @@ export const Icon = styled(FontAwesomeIcon)`
 export const ContentChevronDown = styled.div`
   background-color: var(--bg-secondary);
   width: 100%;
+  cursor:pointer;
   height: 35px;
   position: absolute;
   bottom: 0;

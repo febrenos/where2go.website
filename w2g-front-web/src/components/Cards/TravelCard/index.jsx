@@ -49,7 +49,6 @@ export function TravelCard({ list, type}) {
 
     (getIsLike && isLike) && setLikeCounter(list.like);
     (getIsLike && !isLike) && setLikeCounter(list.like-1);
-    console.log(list.like)
   },[isLike,getIsLike, list])
 
   function HandleClickSave() {
@@ -85,7 +84,6 @@ export function TravelCard({ list, type}) {
 
     navigator.clipboard.writeText(informationToCopy)
     .then(() => {
-      console.log('Informações copiadas.');
       setIsCopy(true);
       setTimeout(() => {
         setIsCopy(false);
@@ -101,7 +99,6 @@ export function TravelCard({ list, type}) {
 
     navigator.clipboard.writeText(informationToCopy)
     .then(() => {
-      console.log('link copiado.');
       setIsLink(true);
       setTimeout(() => {
         setIsLink(false);

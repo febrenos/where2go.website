@@ -21,7 +21,6 @@ export function PerssonCard({ list, type}) {
 
     navigator.clipboard.writeText(informationToCopy)
     .then(() => {
-      console.log('link copiado.');
       setIsLink(true);
       setTimeout(() => {
         setIsLink(false);

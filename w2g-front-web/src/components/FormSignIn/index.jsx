@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import {Input, Button} from "../index";
+import {Input, Button, TitleCard} from "../index";
 import Logo from "../../img/where2GoTxt.png";
 import * as Styled from './style';
 import { BackgroundCard, Gap } from "../../style";
@@ -8,7 +8,7 @@ import { BackgroundCard, Gap } from "../../style";
 export function FormSignIn(){
     return(
         <Styled.All>
-        <Styled.Title>Login</Styled.Title>
+        <TitleCard text={'Login'}/>
         <BackgroundCard mobile>
             <Styled.Img src={Logo}/>
             <Input text="Usuário" type="text"/>

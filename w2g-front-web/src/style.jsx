@@ -2,12 +2,12 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   :root {
+    --primary-color: #5270FB;
+    --secondary-color: rgba(82, 112, 251, 0.39); //#37427b;
     --bg-primary: #121214;
     --bg-secondary: #26252A;
     --bg-tartiary: #36353C;
     --bg-third: #6c757d;
-    --primary-color: #5270FB;
-    --secondary-color: rgba(82, 112, 251, 0.39);
     --txt-primary: #8F8D98;
     --txt-secondary: #f5f5f547;
     --txt-title: #cecece;
@@ -18,6 +18,9 @@ export const GlobalStyle = createGlobalStyle`
     --light-color: #f8f9fa;
     --dark-color: #343a40;
     --button-txt: #fff;
+
+    --msg-send: #353342;
+    --txt-solid: #c3c6e0;
   }
 
   * {

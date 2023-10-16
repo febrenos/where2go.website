@@ -60,6 +60,11 @@ export const Input = styled.input`
   &:-webkit-autofill {
     -webkit-text-fill-color: #f5f5f547 !important;
   }
+  //icone calendário
+  &[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    filter: invert(75%);;
+  }
   
   @keyframes onAutoFillStart{
     from { opacity: 0; }

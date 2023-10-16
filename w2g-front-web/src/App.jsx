@@ -8,7 +8,7 @@ import ToExplore from './pages/ToPlan/index'
 import Chatbot from './pages/Chatbot/index'
 import Notifications from './pages/Notifications/index'
 import Calendar from './pages/Calendar/index'
-import Travels from './pages/Travels/index'
+import Rank from './pages/Rank/index'
 import Settings from './pages/Settings/index'
 import SignUp from './pages/Access/SignUp'
 import SignIn from './pages/Access/SignIn'
@@ -28,7 +28,7 @@ export default function App(){
                     <Route path='/Profile' element={<Profile/>}/>
                     <Route path='/' element={<Home/>}/>
                     <Route path='/ToPlan' element={<ToExplore/>}/>
-                    <Route path='/Travels' element={<Travels/>}/>
+                    <Route path='/Rank' element={<Rank/>}/>
                     <Route path='/People' element={<People/>}/>
                     <Route path='/Notifications' element={<Notifications/>}/>
                     <Route path='/Calendar' element={<Calendar/>}/>

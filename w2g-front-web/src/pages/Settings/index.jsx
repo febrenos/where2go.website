@@ -93,7 +93,7 @@ export default function Settings() {
         <>
         <Menu isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
         <div className={isOpen ? 'contentClose' : 'contentOpen'}>
-          <TitlePage text={"Profile"} />
+          <TitlePage text={"Perfil"} />
           <StyledContentLogged>
             <BackgroundCard>
               <Switch enabled={['Notificações site']}/>

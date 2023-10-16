@@ -10,7 +10,7 @@ export const Content = styled.div`
   display: flex;
   align-items: center;
   gap: 15px;
-  padding: 5px;
+  // padding: 5px;
   width: fit-content;
   width:100%;
   justify-content: ${(props) => {

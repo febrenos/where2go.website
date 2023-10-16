@@ -27,3 +27,4 @@ export { TravelCardList } from './CardsList/TravelCardList';
 export { Switch } from './Inputs/Switch';
 export { Radio } from './Inputs/Radio';
 export { Checkbox } from './Inputs/Checkbox';
+export { DatePicker } from './Inputs/DatePicker';

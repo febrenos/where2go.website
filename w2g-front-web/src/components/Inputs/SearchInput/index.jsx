@@ -2,10 +2,15 @@ import React, { useState } from 'react';
 import * as Styled from './style.jsx';
 import { faSearch, faFilter } from '@fortawesome/free-solid-svg-icons';
 import { BackgroundCard, Gap } from '../../../style.jsx';
-import { WordPreferences, Button, Input, TitleCard, TextIcon } from '../../index.jsx';
+import { WordPreferences, Button, Input, TitleCard, TextIcon, DatePicker } from '../../index.jsx';
 
 export function SearchInput({ searchType, placeholder, activeFilter, onFilterClick }) {
-  const [isOpenFilter, setIsOpenFilter] = useState(false);
+  const [isOpenFilter, setIsOpenFilter] = useState(activeFilter);
+  const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
+
+  const handleSearchIconClick = (isOpen) => {
+    setIsDatePickerOpen(false);
+  };
 
   const handleFilterClick = () => {
     setIsOpenFilter(!isOpenFilter);
@@ -106,7 +111,7 @@ export function SearchInput({ searchType, placeholder, activeFilter, onFilterCli
         <Styled.Input placeholder={placeholder} />
         <Styled.BgIcon>
           <Styled.StyledIcon icon={faSearch} />
-          <Styled.StyledIcon icon={faFilter} onClick={handleFilterClick} isActive={isOpenFilter}/>
+          <Styled.StyledIcon icon={faFilter} onClick={handleFilterClick} />{/* isActive={isOpenFilter} */}
         </Styled.BgIcon>
       </Styled.Content>
     </Styled.All>
@@ -129,6 +134,12 @@ export function SearchInput({ searchType, placeholder, activeFilter, onFilterCli
     </>
     }
     {(searchType === 'user' && isOpenFilter) && 'user'}
+    {(searchType === 'calendar' && isOpenFilter) && 
+      <div>
+        <TextIcon text={'Buscar'} action={handleBackButtonClick} type="back"/>
+        <DatePicker isOpenFilter={isDatePickerOpen} onSearchClick={handleSearchIconClick} />
+      </div>
+    }
     </>
   );
 }

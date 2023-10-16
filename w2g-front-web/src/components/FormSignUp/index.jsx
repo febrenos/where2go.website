@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import Logo from "../../img/where2GoTxt.png";
-import {Button, Input} from '../index';
+import {Button, Input, TitleCard} from '../index';
 import * as Styled from '../FormSignIn/style';
 import { BackgroundCard } from "../../style";
 
 export function FormSignUp(){
     return(
         <Styled.All>
-            <Styled.Title>Registro</Styled.Title>
+            <TitleCard text={'Login'}/>
             <BackgroundCard mobile>
                 <Styled.Img src={Logo}/>
                     <Input text="Nome usuário" type="text"/>

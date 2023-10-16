@@ -20,16 +20,17 @@ export default function Home() {
           documents: 'Passport, Visa',
           duration: '7 days',
           links: 'www.example.com/safari-adventure',
+          generatedByIa:"neurotrix",
+          createdBy:'luan.s',
+          description: 'Embarked on a thrilling safari adventure in Africa, encountering majestic wildlife and breathtaking landscapes.',
           like:200,
           isLike: false,
           isSave: true,
           isCreatedByMe:false,
           isAgended:false,
           isVisited:false,
-          createdBy:'luan.s',
           visitedByPeople:10,
           visitedByMe:2,
-          description: 'Embarked on a thrilling safari adventure in Africa, encountering majestic wildlife and breathtaking landscapes.'
         },
         {
           id: 5,
@@ -43,16 +44,17 @@ export default function Home() {
           documents: 'ID, Waiver',
           duration: '4 days',
           links: 'www.example.com/extreme-sports',
+          generatedByIa:"chatgpt",
+          createdBy:'fe.brenos',
+          description: 'Participate in various extreme sports activities such as skydiving, bungee jumping, and rock climbing for an adrenaline-packed experience.',
           like:9,
           isLike: true,
           isSave: true,
           isCreatedByMe:true,
           isAgended:true,
           isVisited:false,
-          createdBy:'fe.brenos',
           visitedByPeople:10,
           visitedByMe:0,
-          description: 'Participate in various extreme sports activities such as skydiving, bungee jumping, and rock climbing for an adrenaline-packed experience.'
         }
       ];
 

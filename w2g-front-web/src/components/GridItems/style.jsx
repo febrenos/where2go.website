@@ -3,6 +3,27 @@ import styled from "styled-components";
 export const Img = styled.img`
  width:130px;
 `
+
+export const All = styled.div`
+display:flex;
+gap: 10px;
+flex-direction:column;
+`
+
+export const Rank = styled.div`
+cursor: pointer;
+border-radius: 15px;
+display: flex;
+gap: 10px;
+padding:20px;
+background: var(--bg-secondary);
+align-items: center;
+justify-content: center;
+max-width:555px;
+@media(width < 768px){
+  flex-direction:column;
+}
+`
 export const ContentGrid = styled.div`
 display: grid;
 grid-template-columns: repeat(4, 1fr);

@@ -3,7 +3,7 @@ import React from 'react'
 
 import {NavLink} from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faUserAlt, faChevronRight, faPaperPlane, faBell, faGear, faRightFromBracket, faHome, faMapLocationDot, faPlane, faUserGroup, faCalendarDays } from '@fortawesome/free-solid-svg-icons';//faChevronCircleRight
+import {faUserAlt, faChevronRight, faPaperPlane, faBell, faGear, faRightFromBracket, faHome, faMapLocationDot, faUserGroup, faCalendarDays, faMedal } from '@fortawesome/free-solid-svg-icons';//faChevronCircleRight
 import './style.css'
 
 export function Menu(props){
@@ -15,7 +15,10 @@ export function Menu(props){
             <ul className={props.isOpen ? 'menuOpen' : 'menuClose'}>
                 <li onClick={props.onClick}><FontAwesomeIcon className=" menuButton icon" icon={faChevronRight} id={props.isOpen ? 'iMenuOpen' : 'iMenuClose'}/></li>
                 <NavLink to={"/Profile"}>
-                    <li><FontAwesomeIcon className="icon" icon={faUserAlt}/><a>Home</a></li>
+                    <li>
+                        <FontAwesomeIcon className="icon" icon={faUserAlt}/>
+                        <a>Perfil</a>
+                    </li>
                 </NavLink>
                 <NavLink to={"/"}>
                     <li><FontAwesomeIcon className="icon" icon={faHome}/><a>Home</a></li>
@@ -23,8 +26,8 @@ export function Menu(props){
                 <NavLink to={"/ToPlan"}>
                     <li><FontAwesomeIcon className="icon" icon={faMapLocationDot}/><a>Planejar</a></li>
                 </NavLink>
-                <NavLink to={"/Travels"}>
-                    <li><FontAwesomeIcon className="icon" icon={faPlane}/><a>Viagens</a></li>
+                <NavLink to={"/Rank"}>
+                    <li><FontAwesomeIcon className="icon" icon={faMedal}/><a>Rank</a></li>
                 </NavLink>
                 <NavLink to={"/People"}>
                     <li><FontAwesomeIcon className="icon" icon={faUserGroup}/><a>Pessoas</a></li>

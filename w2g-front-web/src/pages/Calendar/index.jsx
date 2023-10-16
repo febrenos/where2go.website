@@ -61,7 +61,7 @@ export default function Calendar() {
             <div className={isOpen ? 'contentClose' : 'contentOpen'}>
              <TitlePage text={"Calendário"}/>
              <StyledContentLogged>
-                <SearchInput searchType="calendar" placeholder="Buscar" />
+                <SearchInput searchType="calendar" placeholder="Buscar" activeFilter/>
                 <TravelCardList list={travelList} type="agended"/>
              </StyledContentLogged>
             </div>
