@@ -2,13 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import * as Styled from './style';
 
-const agended = [
-  '20/11/2023',
-  '10/12/2023',
-  '10/12/2023',
-]
-
-export function DatePicker() {
+export function DatePicker({list}) {//lidt = agended days ex: '20/11/2023'
   const currentMonth = new Date().getMonth();
   const currentYear = new Date().getFullYear();
 
@@ -128,7 +122,7 @@ export function DatePicker() {
     const day = index + 1;
 
     // Verifica se o dia está na lista de agendados
-    const isAgended = agended.includes(`${day}/${selectedMonth + 1}/${selectedYear}`);
+    const isAgended = list.includes(`${day}/${selectedMonth + 1}/${selectedYear}`);
 
     return (
       <Styled.Circle

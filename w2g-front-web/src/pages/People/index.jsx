@@ -31,13 +31,14 @@ export default function People() {
                         <NavTab tabs={['Amigos', 'Usuários']} activeTab={getNavTab} onTabClick={setNavTab}/>
                         {getNavTab === 1 &&
                             <>
-                                <SearchInput searchType="travel" placeholder="Buscar" />
+                                <SearchInput disableFilter/>
                                 <PeopleCardList list={perssonList}/>
                             </>
                         }
                         {getNavTab === 2 &&
                             <>
-                                <SearchInput searchType="travel" placeholder="Buscar" />
+                                <SearchInput disableFilter/>
+                                <PeopleCardList list={perssonList}/>
                             </>
                         }
                         

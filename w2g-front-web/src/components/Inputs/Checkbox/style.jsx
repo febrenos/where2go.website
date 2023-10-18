@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Content = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 `;
 
 export const CheckboxWrapper = styled.label`
@@ -24,11 +24,11 @@ export const CheckboxWrapper = styled.label`
     margin-right: 10px;
     box-sizing: content-box;
     transition: 0.3s;
+    background-color: #fff;
   }
 
   input[type='checkbox']:checked + .checkbox {
     background-color: var(--primary-color);
     border: 2px solid var(--primary-color);
-    box-shadow: inset 0 0 0 4px var(--bg-secondary);
   }
 `;

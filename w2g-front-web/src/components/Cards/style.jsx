@@ -7,7 +7,7 @@ export const Card = styled.div`
   transition:.5s;
   flex-direction: column;
   padding: ${props => (props.isShowMore ? '12px 20px 40px 20px' : '12px 20px')};
-  background-color: var(--bg-secondary);
+  background-color: ${props => (props.isCreatedByMe ? 'var(--secondary-color)' : 'var(--bg-secondary)')};
   border-radius: 32px;
   height: ${props => (props.isShowMore ? '100%' : '143px')};
   overflow: hidden;
@@ -100,7 +100,7 @@ export const Icon = styled(FontAwesomeIcon)`
 
 
 export const ContentChevronDown = styled.div`
-  background-color: var(--bg-secondary);
+background-color: ${props => (props.isCreatedByMe ? 'var(--secondary-color)' : 'var(--bg-secondary)')};
   width: 100%;
   cursor:pointer;
   height: 35px;

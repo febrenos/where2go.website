@@ -17,8 +17,8 @@ const CheckboxItem = ({ label, value, name, checked, onChange }) => {
     </Styled.CheckboxWrapper>
   );
 };
-//
-export function Checkbox({ title = 'Escolha', options, selectedValues, onValueChange }) {
+
+export function Checkbox({ title = 'Options', options, selectedValues, onValueChange, groupName }) {
   return (
     <Styled.Content>
       <Text text={title} size={'lg'} bold />
@@ -28,7 +28,7 @@ export function Checkbox({ title = 'Escolha', options, selectedValues, onValueCh
             key={option.value}
             label={option.label}
             value={option.value}
-            name={option.name}
+            name={groupName}
             checked={selectedValues.includes(option.value)}
             onChange={() => onValueChange(option.value)}
           />

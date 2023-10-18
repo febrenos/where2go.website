@@ -23,6 +23,8 @@ export function TravelCard({ list, type}) {
   const [isVisitedOpen, setIsVisitedOpen] = useState(false);
   const [visitedCounter, setVisitedCounter] = useState(list.visitedByMe);
 
+  const [isCreatedByMe,] = useState(list.isCreatedByMe);
+
   const HandleClickVisited =  () => {
     setIsVisited((prev) => !prev)
     setTimeout(() => {
@@ -77,6 +79,8 @@ export function TravelCard({ list, type}) {
       *Duração:* ${list.duration}
       *Visitado:* ${list.visitedByPeople} pessoa(as)
       *Visitado por você:* ${list.visitedByMe} vez(es)
+      *Criado Por:* ${list.createdBy}
+      *Visibilidade:* ${list.visibility}
       *Links:* ${list.links}
       *Where2Go:* https://localhost:3000/${list.id}
       *Descrição:* ${list.description}
@@ -130,7 +134,7 @@ export function TravelCard({ list, type}) {
   return (
     <>
     {!isOcult && (
-      <Global.Card isShowMore={isShowMore}>
+      <Global.Card isShowMore={isShowMore} isCreatedByMe={isCreatedByMe}>
         <Global.Content>
           <Styled.FlexTop>
             <Global.Img src={DefaultImg} />
@@ -192,6 +196,14 @@ export function TravelCard({ list, type}) {
                 <Global.Text>{`${visitedCounter} Vez(es)`}</Global.Text>
               </Styled.VisitedByMe>
               <Styled.Flex>
+                <Styled.Bold>Criado por:</Styled.Bold>
+                <Global.Text>{list.createdBy}</Global.Text>
+              </Styled.Flex>
+              <Styled.Flex>
+                <Styled.Bold>Visibilidade:</Styled.Bold>
+                <Global.Text>{list.visibility}</Global.Text>
+              </Styled.Flex>
+              <Styled.Flex>
                 <Styled.Bold>Links:</Styled.Bold>
                 <Global.Text>{list.links}</Global.Text>
               </Styled.Flex>
@@ -219,7 +231,7 @@ export function TravelCard({ list, type}) {
                 }
               </Styled.IconsInline>
               </Styled.TextContent>
-        <Global.ContentChevronDown onClick={HandleClickShowMore}>
+        <Global.ContentChevronDown onClick={HandleClickShowMore} isCreatedByMe={isCreatedByMe}>
           <Global.Icon icon={faChevronDown} isShowMore={isShowMore} />
         </Global.ContentChevronDown>
       </Global.Card>

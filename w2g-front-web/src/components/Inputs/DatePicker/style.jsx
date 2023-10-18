@@ -40,9 +40,9 @@ export const Select = styled.select`
   color: var(--txt-primary); /* Corrigido o nome da variável */
   border-radius: 4px;
   padding: 10px;
-  // font-size:13px;
+  cursor:pointer;
   option {
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-primary);
     padding: 20px;
     font-size:16px;
   }

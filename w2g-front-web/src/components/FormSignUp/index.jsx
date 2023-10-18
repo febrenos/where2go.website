@@ -15,6 +15,7 @@ export function FormSignUp(){
                     <Input text="Nome" type="text"/>
                     <Input text="Cpf" type="text"/>
                     <Input text="Email" type="text"/>
+                    <Input text="CEP" type="number"/>
                     <Input text="Senha" type="password"/>
                     <Input text="Confirme a senha" type="password"/>
                     <Input text="Data Nascimento" type="date"/>

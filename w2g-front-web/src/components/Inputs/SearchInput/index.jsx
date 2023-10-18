@@ -2,11 +2,25 @@ import React, { useState } from 'react';
 import * as Styled from './style.jsx';
 import { faSearch, faFilter } from '@fortawesome/free-solid-svg-icons';
 import { BackgroundCard, Gap } from '../../../style.jsx';
-import { WordPreferences, Button, Input, TitleCard, TextIcon, DatePicker } from '../../index.jsx';
+import { WordPreferences, Button, Input, TitleCard, TextIcon, DatePicker, Checkbox } from '../../index.jsx';
 
-export function SearchInput({ searchType, placeholder, activeFilter, onFilterClick }) {
-  const [isOpenFilter, setIsOpenFilter] = useState(activeFilter);
+const options = [
+  { label: 'Eventos', value: 'event' },
+  { label: 'Viagens', value: 'travel' },
+  { label: 'Locais', value: 'place' },
+];
+
+const visibility = [
+  { label: 'Privado', value: 'private' },
+  { label: 'Amigos', value: 'friends' },
+  { label: 'Convidados', value: 'guests' },
+  { label: 'Todos', value: 'all' },
+];
+
+export function SearchInput({ searchType, placeholder='Buscar', onFilterClick, agended, startFilter, disableFilter }) {
+  const [isOpenFilter, setIsOpenFilter] = useState(startFilter);
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
+  const [selectedValues, setSelectedValues] = useState([]);
 
   const handleSearchIconClick = (isOpen) => {
     setIsDatePickerOpen(false);
@@ -20,124 +34,83 @@ export function SearchInput({ searchType, placeholder, activeFilter, onFilterCli
     setIsOpenFilter(false);
   };
 
-  const wordPreferences = [
-    {
-      name: 'Sol',
-      isActive: true,
-    },
-    {
-      name: 'Clássico',
-      isActive: true,
-    },
-    {
-      name: 'Música',
-      isActive: true,
-    },
-    {
-      name: 'Histórico',
-      isActive: false,
-    },
-    {
-      name: 'Comida',
-      isActive: true,
-    },
-    {
-      name: 'Ar livre',
-      isActive: false,
-    },
-    {
-      name: 'Água',
-      isActive: false,
-    },
-    {
-      name: 'Natureza',
-      isActive: false,
-    },
-    {
-      name: 'Esporte',
-      isActive: true,
-    },
-    {
-      name: 'Aventura',
-      isActive: false,
-    },
-    {
-      name: 'Relaxamento',
-      isActive: false,
-    },
-    {
-      name: 'Cultura',
-      isActive: false,
-    },
-    {
-      name: 'Praia',
-      isActive: true,
-    },
-    {
-      name: 'Montanha',
-      isActive: false,
-    },
-    {
-      name: 'Cidade',
-      isActive: false,
-    },
-    {
-      name: 'Inverno',
-      isActive: false,
-    },
-    {
-      name: 'Verão',
-      isActive: true,
-    },
-    {
-      name: 'Outono',
-      isActive: false,
-    },
-    {
-      name: 'Primavera',
-      isActive: false,
-    },
-    {
-      name: 'Escalada',
-      isActive: true,
-    },
+  const handleValueChange = (value) => {
+    // Toggle the selected values based on the clicked checkbox
+    if (selectedValues.includes(value)) {
+      setSelectedValues(selectedValues.filter((val) => val !== value));
+    } else {
+      setSelectedValues([...selectedValues, value]);
+    }
+  };
+
+  const filter = {
+  price:'',
+  place:'',
+  dtStart:'',
+  dtEnd:'',
+  wordPreferences:[
+    'viagem',
+    'ponto turistico',
+    'praia',
+    'cidade',
+    'frio',
+    'classico',
   ]
+};
 
   return (
     <>
     {!isOpenFilter &&
+    <div>
     <Styled.All>
       <Styled.Content>
         <Styled.Input placeholder={placeholder} />
         <Styled.BgIcon>
           <Styled.StyledIcon icon={faSearch} />
-          <Styled.StyledIcon icon={faFilter} onClick={handleFilterClick} />{/* isActive={isOpenFilter} */}
+          {!disableFilter &&
+            <Styled.StyledIcon icon={faFilter} onClick={handleFilterClick} />
+          }
         </Styled.BgIcon>
       </Styled.Content>
     </Styled.All>
+    </div>
     }
     {(searchType === 'travel' && isOpenFilter) &&
-    <>
-      <TitleCard text={'Filtrar'}/>
-      <BackgroundCard>
-        <TextIcon text={'Buscar'} action={handleBackButtonClick} type="back"/>
-        <Input text={'Preço'}></Input>
-        <Input text={'Região'}></Input>
-        <Input text={'Data início'}></Input>
-        <Input text={'Data fim'}></Input>
-        <WordPreferences list={wordPreferences}/>
-        <Gap>
-          <Button text={'Cancelar'} />
-          <Button text={'Salvar'} solid/>
-        </Gap>
-      </BackgroundCard>
-    </>
+    <div>
+        <TitleCard text={'Filtrar'}/>
+        <BackgroundCard>
+          <TextIcon text={'Buscar'} action={handleBackButtonClick} type="back"/>
+          <Input text={'Preço'}></Input>
+          <Input text={'Região'}></Input>
+          <Input text={'Data início'}></Input>
+          <Input text={'Data fim'}></Input>
+          <Checkbox
+            title="Destino"
+            options={options}
+            selectedValues={selectedValues}
+            onValueChange={handleValueChange}
+            groupName="exampleCheckboxGroup"
+          />
+          <Checkbox
+            title="Visibilidade"
+            options={visibility}
+            selectedValues={selectedValues}
+            onValueChange={handleValueChange}
+            groupName="exampleCheckboxGroup"
+          />
+          <WordPreferences list={filter.wordPreferences}/>
+          <Gap>
+            <Button text={'Cancelar'} />
+            <Button text={'Salvar'} solid/>
+          </Gap>
+        </BackgroundCard>
+      </div>
     }
-    {(searchType === 'user' && isOpenFilter) && 'user'}
+    {/* {(searchType === 'user' && isOpenFilter) && } */}
     {(searchType === 'calendar' && isOpenFilter) && 
       <div>
         <TextIcon text={'Buscar'} action={handleBackButtonClick} type="back"/>
-        <DatePicker isOpenFilter={isDatePickerOpen} onSearchClick={handleSearchIconClick} />
+        <DatePicker isOpenFilter={isDatePickerOpen} onSearchClick={handleSearchIconClick} list={agended}/>
       </div>
     }
     </>

@@ -25,86 +25,12 @@ const userProfileData = {
   password: 'testpassword',
   confirmPassword: 'testpassword',
   wordPreferences:[
-    {
-      name: 'Sol',
-      isActive: true,
-    },
-    {
-      name: 'Clássico',
-      isActive: true,
-    },
-    {
-      name: 'Música',
-      isActive: true,
-    },
-    {
-      name: 'Histórico',
-      isActive: false,
-    },
-    {
-      name: 'Comida',
-      isActive: true,
-    },
-    {
-      name: 'Ar livre',
-      isActive: false,
-    },
-    {
-      name: 'Água',
-      isActive: false,
-    },
-    {
-      name: 'Natureza',
-      isActive: false,
-    },
-    {
-      name: 'Esporte',
-      isActive: true,
-    },
-    {
-      name: 'Aventura',
-      isActive: false,
-    },
-    {
-      name: 'Relaxamento',
-      isActive: false,
-    },
-    {
-      name: 'Cultura',
-      isActive: false,
-    },
-    {
-      name: 'Praia',
-      isActive: true,
-    },
-    {
-      name: 'Montanha',
-      isActive: false,
-    },
-    {
-      name: 'Cidade',
-      isActive: false,
-    },
-    {
-      name: 'Inverno',
-      isActive: false,
-    },
-    {
-      name: 'Verão',
-      isActive: true,
-    },
-    {
-      name: 'Outono',
-      isActive: false,
-    },
-    {
-      name: 'Primavera',
-      isActive: false,
-    },
-    {
-      name: 'Escalada',
-      isActive: true,
-    },
+    'viagem',
+    'ponto turistico',
+    'praia',
+    'cidade',
+    'frio',
+    'classico',
   ]
 };
 

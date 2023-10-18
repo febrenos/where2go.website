@@ -16,12 +16,24 @@ const transport = [
     { label: 'A pé', value: 'aPe', name: 'options' },
 ];
 
+const visibility = [
+    { label: 'Privado', value: 'private' },
+    { label: 'Amigos', value: 'friends' },
+    { label: 'Convidados', value: 'guests' },
+    { label: 'Todos', value: 'all' },
+  ];
+
 export default function ToPlan() {
     const [isOpen, setIsOpen] = useState(false);
     const [getNavTab, setNavTab] = useState(1);
-    const [selectedTrajectoryType, setSelectedTrajectoryType] = useState('option1');
-    const [selectedTransport, setSelectedTransport] = useState('aviao');
+    const [selectedTrajectoryType, setSelectedTrajectoryType] = useState('');
+    const [selectedvisibilityType, setSelectedvisibilityType] = useState('');
+    const [selectedTransport, setSelectedTransport] = useState('');
   
+    const handleVisibilityType = (value) =>{
+        setSelectedvisibilityType(value);
+    };
+
     const handleTrajectoryTypeChange = (value) => {
       setSelectedTrajectoryType(value);
     };
@@ -36,7 +48,7 @@ export default function ToPlan() {
             <div className={isOpen ? 'contentClose' : 'contentOpen'}>
             <TitlePage text={"Planejar"}/>
             <StyledContentLogged>
-                        <NavTab tabs={['Cadastrar', 'Criadas', 'Meus Planos']} activeTab={getNavTab} onTabClick={setNavTab}/>
+                        <NavTab tabs={['Cadastrar', 'Criadas']} activeTab={getNavTab} onTabClick={setNavTab}/>
                         {getNavTab === 1 &&
                             <>
                                 <BackgroundCard>
@@ -66,20 +78,21 @@ export default function ToPlan() {
                                         selectedValue={selectedTransport}
                                         onValueChange={handleTransportChange}
                                     />
+                                    <Radio
+                                      title={'Visibilidade'}
+                                      options={visibility}
+                                      selectedValue={selectedvisibilityType}
+                                      onValueChange={handleVisibilityType}
+                                    />
                                         <Button text="Criar com IA" />
                                     <Gap>
                                         <Button text="Cancelar"/>
-                                        <Button text="Salvar" solid={true} />
+                                        <Button text="Criar" solid={true} />
                                     </Gap>
                                 </BackgroundCard>
                             </>
                         }
                         {getNavTab === 2 &&
-                            <>
-                                <SearchInput searchType="travel" placeholder="Buscar" />
-                            </>
-                        }
-                        {getNavTab === 3 &&
                             <>
                                 <SearchInput searchType="travel" placeholder="Buscar" />
                             </>
