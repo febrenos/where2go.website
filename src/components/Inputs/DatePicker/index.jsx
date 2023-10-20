@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import * as Styled from './style';
 
-export function DatePicker({list}) {//lidt = agended days ex: '20/11/2023'
+export function DatePicker({list=[]}) {//lidt = agended days ex: '20/11/2023'
   const currentMonth = new Date().getMonth();
   const currentYear = new Date().getFullYear();
 

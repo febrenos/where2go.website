@@ -21,7 +21,7 @@ const visibility = [
     { label: 'Amigos', value: 'friends' },
     { label: 'Convidados', value: 'guests' },
     { label: 'Todos', value: 'all' },
-  ];
+];
 
 export default function ToPlan() {
     const [isOpen, setIsOpen] = useState(false);
@@ -84,7 +84,7 @@ export default function ToPlan() {
                                       onValueChange={handleVisibilityType}
                                     />
                                     <WordPreferences/>
-                                        <Button text="Criar com IA" />
+                                    <Button text="Criar com IA" />
                                     <Gap>
                                         <Button text="Cancelar"/>
                                         <Button text="Criar" solid={true} />
