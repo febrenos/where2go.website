@@ -6,17 +6,14 @@ export const DatePickerContent = styled.div`
   flex-direction: column;
   background-color: var(--bg-secondary);
   border-radius: 32px;
-  gap: 10px;
+  gap: 20px;
   padding: 30px;
-  width: 50vw;
-  height: 50vw;
-  max-width: 350px;
-  max-height: 370px;
+  height:auto;
+  max-width: 370px;
   @media(width < 768px){
     width: 100%;
     height:fit-content;
     max-width: none;
-    max-height: none;
     padding: 20px 10px;
   }
 `;

@@ -72,11 +72,11 @@ export default function ChatBot({list}) {
         const initialMessage = getRandomStartMessage();
         list.push(initialMessage);
         setUserMessages([...messages]);
-      }, []); // Executa apenas na montagem
+      }, [list]); // Executa apenas na montagem
 
       const handleSendMessage = () => {
         const isTooLongOrSpecialCharactersOnly = inputMessage.length > 300 || /^[\W_]+$/.test(inputMessage);
-        const specialCharacterCount = (inputMessage.match(/[^a-zA-Z0-9ç\s!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/g) || []).length;
+        const specialCharacterCount = (inputMessage.match(/[^a-zA-Z0-9ç\s!@#$%^&*()_+\-=]\[\]{};':"\\|,.<>\/?]+/g) || []).length;
         const hasTooManySpecialCharacters = specialCharacterCount > 1;
         const hasMoreNumbersThanLettersOrOnlyNumbers = (inputMessage.replace(/[^a-zA-Z]/g, '').length < inputMessage.replace(/\D/g, '').length);
         const hasRepeatedCharacterSequence = /(\w)\1{2,}/.test(inputMessage);
