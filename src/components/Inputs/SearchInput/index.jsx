@@ -81,7 +81,7 @@ export function SearchInput({ searchType, placeholder='Buscar', onFilterClick, a
         <BackgroundCard>
           <TextIcon text={'Buscar'} action={handleBackButtonClick} type="back"/>
           <Input text={'Preço'}></Input>
-          <Input text={'Região'}></Input>
+          <Input text={'Local/cep'}></Input>
           <Input text={'Data início'}></Input>
           <Input text={'Data fim'}></Input>
           <Checkbox

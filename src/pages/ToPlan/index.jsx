@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Menu, TitlePage, NavTab, SearchInput, Input, Button, Switch, Radio } from '../../components/index'
+import { Menu, TitlePage, NavTab, SearchInput, Input, Button, Switch, Radio, WordPreferences } from '../../components/index'
 // import * as Styled from './style.jsx'
 import { BackgroundCard, Gap, StyledContentLogged } from '../../style';
 
@@ -55,11 +55,10 @@ export default function ToPlan() {
                                     <Switch enabled={['IA Neurotrix','IA Chat GPT']} size={'sm'}/>
                                     <Button text="Gerar inputs" size={'lg'} align={'left'}/>
                                     <Input text={"Título"}/>
-                                    <Input text={"Local"}/>
+                                    <Input text={"Local / Cep"}/>
                                     <Input text={"Preço estimado"}/>
                                     <Input text={"Data inicio"}/>
                                     <Input text={"Data fim"}/>
-                                    <Input text={"Transporte"}/>
                                     <Input text={"Tempo de Distancia"}/>
                                     <Input text={"Documentos"}/>
                                     <Input text={"Duração"}/>
@@ -84,6 +83,7 @@ export default function ToPlan() {
                                       selectedValue={selectedvisibilityType}
                                       onValueChange={handleVisibilityType}
                                     />
+                                    <WordPreferences/>
                                         <Button text="Criar com IA" />
                                     <Gap>
                                         <Button text="Cancelar"/>
