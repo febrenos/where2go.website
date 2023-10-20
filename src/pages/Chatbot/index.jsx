@@ -59,9 +59,10 @@ const messages = [
 const getRandomStartMessage = () => {
     const randomIndex = Math.floor(Math.random() * startMessages.length);
     return startMessages[randomIndex];
-  };
+};
 
-export default function ChatBot({list=[]}) {
+const defaultList = [];
+export default function ChatBot({list=defaultList}) {
     list = messages;
     const [isOpen, setIsOpen] = useState(false);
     const [, setUserMessages] = useState(list); // Renomeando para evitar conflito de nomes

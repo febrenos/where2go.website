@@ -241,8 +241,8 @@ const wordPreferencesModel = [
   }
 ];
 
-
-export function WordPreferences({list=[]}) {
+const defaultList = [];
+export function WordPreferences({list=defaultList}) {
   const [isActive, setIsActive] = useState({});
   const [isShowMore, setIsShowMore] = useState(false);
 
