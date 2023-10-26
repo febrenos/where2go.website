@@ -1,6 +1,11 @@
 # where2go.website
 Um planejamento de viagens react js
 
+- [NEUROTRIX AI API](https://febrenos.pythonanywhere.com)
+- [SITE APRESENTATIVO](https://where2go-info.vercel.app/)
+- [PROJETO](https://where2go.website/SignIn)
+
+### NEUROTRIX AI API
 | Method | url |
 |---|---|
 | Post | http://127.0.0.1:5000/bot |
