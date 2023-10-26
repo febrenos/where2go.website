@@ -40,6 +40,11 @@ export const Desc = styled.div`
   margin-left: 15px;
 `;
 
+export const MessageInLine = styled.div`
+  display:flex;
+  gap:10px;
+`
+
 export const DescH3 = styled.h3`
   font-size: 20px;
   color: var(--primary-color);
@@ -69,6 +74,7 @@ export const Message = styled.div`
   border-radius: ${(props) => (props.typeMessage === 'send'? '20px 20px 0 20px' : '20px 20px 20px 0')};
   background-color: ${(props) => (props.typeMessage === 'send'? 'var(--msg-send)' : 'var(--secondary-color)')};
   margin: ${(props) => (props.typeMessage === 'send'? '0 0 10px 20%' : '0 20% 10px 0')};
+  overflow:hidden;
 `;
 
 export const MessageP = styled.p`
@@ -76,6 +82,22 @@ export const MessageP = styled.p`
   color: var(--txt-solid);
   word-break: break-all;
   white-space: pre-line;
+`;
+
+export const MessageKey = styled(MessageP)`
+  white-space: nowrap;
+  font-weight:bold;
+`;
+
+export const MessageTitle = styled(MessageP)`
+  font-weight:bold;
+`;
+
+export const MessageLink = styled.a`
+font-size: 15px;
+color: var(--link);
+word-break: break-all;
+white-space: pre-line;
 `;
 
 export const SendMessage = styled.div`

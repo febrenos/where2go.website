@@ -34,9 +34,10 @@ export const All = styled.div`
   width: 100%;
   display: flex;
   margin-bottom:50px;
-  @media(width < 768px){
-    justify-content: center;
-  }
+  justify-content: center;
+  // @media(width < 768px){
+    
+  // }
 `;
 
 export const Content = styled.div`

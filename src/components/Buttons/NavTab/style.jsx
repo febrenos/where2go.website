@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const All = styled.div`
   display: flex;
   width: 100%;
-  @media (max-width: 768px) {
-    justify-content: center;
-  }
+  justify-content: center;
+  // @media (max-width: 768px) {
+  //   justify-content: center;
+  // }
 `;
 
 export const NavTab = styled.div`

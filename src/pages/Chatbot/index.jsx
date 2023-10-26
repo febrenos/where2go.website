@@ -4,7 +4,9 @@ import { StyledContentLogged } from '../../style';
 import Neurotrix from '../../img/neurotrix.png'
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import * as Styled from './style'
+import axios from 'axios'
 
+const api = axios.create({baseURL: "http://febrenos.pythonanywhere.com/"})
 
 const startMessages = [
     {
@@ -12,7 +14,7 @@ const startMessages = [
         message:'Sou seu assistente de viagem, o que precisa?'
     },
     {
-        type:'recive',
+        type:'send',
         message:'Olá sou o travel assistent, como posso te ajudar?'
     },
     {
@@ -61,13 +63,130 @@ const getRandomStartMessage = () => {
     return startMessages[randomIndex];
 };
 
+const renderMessageContent = (item) => {
+    if (item.type === "send" || item.type === "recive") {
+        // Mensagem de envio ou recebimento
+        return (
+            <Styled.MessageP>{item.message}</Styled.MessageP>
+        );
+    } else if (Array.isArray(item.message)) {
+        if (item.message[0].type === "place_details") {
+            // Mensagem do tipo "place_details"
+            return (
+                <div style={{ marginTop: "10px" }}>
+                    <Styled.MessageTitle >
+                        {item.message[0].title}
+                    </Styled.MessageTitle>
+                    {item.message.slice(1).map((placeDetails, i) => (
+                        <div key={i} style={{ marginTop: "20px" }}>
+
+                            <Styled.MessageTitle>
+                                {i+1}. {placeDetails.place_name}
+                            </Styled.MessageTitle>
+
+                            <Styled.MessageInLine>
+                                <Styled.MessageKey>Endereço: </Styled.MessageKey>
+                                <Styled.MessageP>{placeDetails.address}</Styled.MessageP>
+                            </Styled.MessageInLine>
+
+                            <Styled.MessageInLine>
+                                <Styled.MessageKey>Número: </Styled.MessageKey>
+                                <Styled.MessageP>{placeDetails.international_phone_number}</Styled.MessageP>
+                            </Styled.MessageInLine>
+
+                            <Styled.MessageInLine>
+                                <Styled.MessageKey>Sobre: </Styled.MessageKey>
+                                <Styled.MessageP>{placeDetails.overview}</Styled.MessageP>
+                            </Styled.MessageInLine>
+
+                            <Styled.MessageInLine>
+                                <Styled.MessageKey>Nível do preço: </Styled.MessageKey>
+                                <Styled.MessageP>{placeDetails.priceLevels}</Styled.MessageP>
+                            </Styled.MessageInLine>
+
+                            <Styled.MessageInLine>
+                                <Styled.MessageKey>Avaliações: </Styled.MessageKey>
+                                <Styled.MessageP>{placeDetails.rating}</Styled.MessageP>
+                            </Styled.MessageInLine>
+
+                            <Styled.MessageInLine>
+                                <Styled.MessageKey>Serve cerveja: </Styled.MessageKey>
+                                <Styled.MessageP>{placeDetails.serves_beer}</Styled.MessageP>
+                            </Styled.MessageInLine>
+
+                            <Styled.MessageInLine>
+                                <Styled.MessageKey>Serve Café matinal: </Styled.MessageKey>
+                                <Styled.MessageP>{placeDetails.serves_breakfast}</Styled.MessageP>
+                            </Styled.MessageInLine>
+
+                            <Styled.MessageInLine>
+                                <Styled.MessageKey>Serve almoço: </Styled.MessageKey>
+                                <Styled.MessageP>{placeDetails.serves_dinner}</Styled.MessageP>
+                            </Styled.MessageInLine>
+
+                            <Styled.MessageInLine>
+                                <Styled.MessageKey>Serve comida vegetariana: </Styled.MessageKey>
+                                <Styled.MessageP>{placeDetails.serves_vegetarian_food}</Styled.MessageP>
+                            </Styled.MessageInLine>
+
+                            <Styled.MessageInLine>
+                                <Styled.MessageKey>Serves vinho: </Styled.MessageKey>
+                                <Styled.MessageP>{placeDetails.serves_wine}</Styled.MessageP>
+                            </Styled.MessageInLine>
+                            
+                            <Styled.MessageInLine>
+                                <Styled.MessageKey>Google: </Styled.MessageKey>
+                                <Styled.MessageLink href={placeDetails.link} target="_blank" rel="noopener noreferrer">{placeDetails.link}</Styled.MessageLink>
+                            </Styled.MessageInLine>
+
+                            <Styled.MessageInLine>
+                                <Styled.MessageKey>website: </Styled.MessageKey>
+                                <Styled.MessageLink href={placeDetails.website} target="_blank" rel="noopener noreferrer">{placeDetails.website}</Styled.MessageLink>
+                            </Styled.MessageInLine>
+
+                            <Styled.MessageInLine>
+                                <Styled.MessageKey>wheelchair_accessible_entrance: </Styled.MessageKey>
+                                <Styled.MessageP>{placeDetails.wheelchair_accessible_entrance}</Styled.MessageP>
+                            </Styled.MessageInLine>
+                        </div>
+                    ))}
+                </div>
+            );
+        } else if (item.message[0].type === "place") {
+            // Mensagem do tipo "place"
+            return (
+                <div style={{ marginTop: "10px" }}>
+                    <Styled.MessageTitle >
+                        {item.message[0].title}
+                    </Styled.MessageTitle>
+                    {item.message.slice(1).map((placeInfo, i) => (
+                        <div key={i} style={{ marginTop: "20px" }}>
+                            <Styled.MessageKey >
+                                {i+1}. {placeInfo.place_name}
+                            </Styled.MessageKey>
+                            <Styled.MessageP>{placeInfo.description}</Styled.MessageP>
+                        </div>
+                    ))}
+                </div>
+            );
+        }
+    } else if (typeof item.message === "string") {
+        // Mensagem de texto simples
+        return (
+            <Styled.MessageP>{item.message}</Styled.MessageP>
+        );
+    }
+
+    return "Desculpe, não entendi";
+};
+
+
 const defaultList = [];
 export default function ChatBot({list=defaultList}) {
     list = messages;
     const [isOpen, setIsOpen] = useState(false);
     const [, setUserMessages] = useState(list); // Renomeando para evitar conflito de nomes
     const [inputMessage, setInputMessage] = useState('');
-
     useEffect(() => {
         list.length = 0;
         const initialMessage = getRandomStartMessage();
@@ -75,7 +194,7 @@ export default function ChatBot({list=defaultList}) {
         setUserMessages([...messages]);
       }, [list]); // Executa apenas na montagem
 
-      const handleSendMessage = () => {
+      const handleSendMessage = async () => {
         const isTooLongOrSpecialCharactersOnly = inputMessage.length > 300 || /^[\W_]+$/.test(inputMessage);
         const specialCharacterCount = (inputMessage.match(/[^a-zA-Z0-9ç\s!@#$%^&*()_+\-=]\[\]{};':"\\|,.<>\/?]+/g) || []).length;
         const hasTooManySpecialCharacters = specialCharacterCount > 1;
@@ -95,10 +214,27 @@ export default function ChatBot({list=defaultList}) {
             || hasMoreThanTwoSequentialRepeatedLetters) {
             return
         }
-        const newMessages = [...list];
+        
+        let newMessages = [...list]; // Altere de const para let
         list.push({ type: 'send', message: inputMessage });
+        setInputMessage('')
         setUserMessages(newMessages);
-        setInputMessage('');
+        
+        try {
+          const response = await api.post("/bot", {
+            message: inputMessage
+          });
+        
+          const responseData = response.data;
+          list.push({ type: 'receive', message: responseData.response });
+        } catch (error) {
+          console.error("Erro na solicitação à API:", error);
+          list.push({ type: 'receive', message: "Desculpe, não entendi" });
+        }
+        
+        newMessages = [...list];
+        setUserMessages(newMessages);
+
     };
 
     const handleKeyDown = (e) => {
@@ -124,15 +260,19 @@ export default function ChatBot({list=defaultList}) {
                             <Styled.DescP>Travel assistent</Styled.DescP>
                           </Styled.Desc>
                         </Styled.UserBot>
+                        
                         <Styled.ContentMessages>
-                        {list.map((i, index) => (
-                          <Styled.ContentMessage typeMessage={i.type} key={index}>
-                            <Styled.Message typeMessage={i.type}>
-                              <Styled.MessageP>{i.message}</Styled.MessageP>
-                            </Styled.Message>
-                          </Styled.ContentMessage>
-                        ))}
+                            {list.map((item, index) => (
+                                <Styled.ContentMessage typeMessage={item.type} key={index}>
+                                    <Styled.Message typeMessage={item.type}>
+                                            {renderMessageContent(item)}
+                                    </Styled.Message>
+                                </Styled.ContentMessage>
+                            ))}
                         </Styled.ContentMessages>
+
+
+
                     </Styled.CardMessages>
                 
 

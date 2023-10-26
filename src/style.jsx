@@ -21,6 +21,7 @@ export const GlobalStyle = createGlobalStyle`
 
     --msg-send: #353342;
     --txt-solid: #c3c6e0;
+    --link:#7b89ff;
   }
 
   * {

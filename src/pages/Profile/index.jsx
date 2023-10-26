@@ -64,6 +64,7 @@ export default function Profile() {
       <Menu isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
       <div className={isOpen ? 'contentClose' : 'contentOpen'}>
         <TitlePage text={"Profile"} />
+
         <StyledContentLogged>
           <BackgroundCard>
             <Styled.Center>

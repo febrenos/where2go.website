@@ -140,10 +140,6 @@ const wordPreferencesModel = [
     value: 'Mergulho'
   },
   {
-    key: 'escalada',
-    value: 'Escalada'
-  },
-  {
     key: 'musica',
     value: 'Música'
   },
