@@ -6,7 +6,7 @@ import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import * as Styled from './style'
 import axios from 'axios'
 
-const api = axios.create({baseURL: "http://febrenos.pythonanywhere.com/"})
+const api = axios.create({baseURL: "https://febrenos.pythonanywhere.com/"})
 
 const startMessages = [
     {
