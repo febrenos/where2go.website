@@ -1,37 +1,77 @@
-import React from "react";
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link, useNavigate } from 'react-router-dom';
 import Logo from "../../img/where2GoTxt.png";
-import {Button, Input, TitleCard} from '../index';
+import { Button, Input, TitleCard } from '../index';
 import * as Styled from '../FormSignIn/style';
 import { BackgroundCard } from "../../style";
+import axios from "axios";
 
-export function FormSignUp(){
-    return(
+const api = axios.create({ baseURL: "http://localhost:8080" });
+
+export function FormSignUp() {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [dateOfBirth, setDateOfBirth] = useState('');
+    const [cep, setCEP] = useState('');
+
+    const navigate = useNavigate();
+
+    const signUpApplication = async () => {
+        setName('');
+        setEmail('');
+        setPassword('');
+        setConfirmPassword('');
+        setDateOfBirth('');
+        setCEP('');
+
+        try {
+            const requestData = {
+                "name": name,
+                "email": email,
+                "password": password
+            };
+
+            const response = await api.post("user/register", requestData);
+
+            if (response.status === 200) {
+                // Registro bem-sucedido, redirecione o usuário para a página de login
+                navigate('/SignIn');
+            } else {
+                // Outro status, trate como erro
+                console.error("Erro no registro. Status: " + response.status);
+            }
+        } catch (error) {
+            console.error("Error making the API request:", error);
+        }
+    };
+
+    return (
         <Styled.All>
-            <TitleCard text={'Login'}/>
+            <TitleCard text={'Cadastro'} />
             <BackgroundCard mobile>
-                <Styled.Img src={Logo}/>
-                    <Input text="Nome usuário" type="text"/>
-                    <Input text="Nome" type="text"/>
-                    <Input text="Cpf" type="text"/>
-                    <Input text="Email" type="text"/>
-                    <Input text="CEP" type="number"/>
-                    <Input text="Senha" type="password"/>
-                    <Input text="Confirme a senha" type="password"/>
-                    <Input text="Data Nascimento" type="date"/>
+                <Styled.Img src={Logo} />
+                <Input text="Nome de usuário" type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                <Input text="Nome" type="text" />
+                <Input text="Email" type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <Input text="CEP" type="number" value={cep} onChange={(e) => setCEP(e.target.value)} />
+                <Input text="Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <Input text="Confirme a senha" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+                <Input text="Data de Nascimento" type="date" value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} />
                 <div>
                     <p>Ao se registrar, você aceita nossos
                     <Styled.A target="_blank" rel="noopener noreferrer" href="https://google.com.br/terms"> termos de uso </Styled.A>
-                        e a nossa 
+                        e a nossa
                         <Styled.A target="_blank" rel="noopener noreferrer" href="https://google.com.br/terms"> política de privacidade</Styled.A>
                     .</p>
                 </div>
                 <div>
-                    <Styled.Text>Já tem um conta?</Styled.Text>
+                    <Styled.Text>Já tem uma conta?</Styled.Text>
                     <Styled.TextBold><Link to="/SignIn">Login</Link></Styled.TextBold>
                 </div>
-                <Button text="Cadastrar" size="md" solid/>
+                <Button text="Cadastrar" size="md" solid onClick={signUpApplication} />
             </BackgroundCard>
         </Styled.All>
-    )
+    );
 }

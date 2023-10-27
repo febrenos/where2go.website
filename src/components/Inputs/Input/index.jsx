@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import * as Styled from './style';
 
-export function Input({ text, type, size, value, onChange, placeholder, onKeyDown }) {
+export function Input({ text, type, size, value, onChange, placeholder, onKeyDown, error }) {
   const [isFocus, setIsFocus] = useState(false);
 
   useEffect(() => {
@@ -29,6 +29,7 @@ export function Input({ text, type, size, value, onChange, placeholder, onKeyDow
         size={size}
         id={text}
         value={value}
+        error={error}
         name={text}
         autoComplete="off"
         onFocus={() => setIsFocus(true)}
