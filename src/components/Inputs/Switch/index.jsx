@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Styled from './style';
 
-export function Switch({ enabled, column = false, size, align = 'left', value, onValueChange }) {
+export function Switch({ enabled, column = false, size, align = 'left', value, onValueChange = () => {} }) {
   const handleIsActive = () => {
     onValueChange(!value);
   };

@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { Menu, TitlePage, NavTab, SearchInput, Input, Button, Switch, Radio, WordPreferences, TravelCardAi, TravelCardAiList } from '../../components/index'
+import { Menu, TitlePage, NavTab, SearchInput, Input, Button, Radio, TravelCardAiList } from '../../components/index'
 // import * as Styled from './style.jsx'
 import { BackgroundCard, Gap, StyledContentLogged } from '../../style';
 import api from '../../services/javaApi'
 import { getCookie } from '../../utils/utils';
 
-const trajectoryType = [
-    { label: 'Viagem', value: 'option1', name: 'options' },
-    { label: 'Evento', value: 'option2', name: 'options' },
-    { label: 'Local', value: 'option3', name: 'options' },
-  ];
+// const trajectoryType = [
+//     { label: 'Viagem', value: 'option1', name: 'options' },
+//     { label: 'Evento', value: 'option2', name: 'options' },
+//     { label: 'Local', value: 'option3', name: 'options' },
+//   ];
 
 const transport = [
     { label: 'Avião', value: 'aviao', name: 'options' },
@@ -18,20 +18,20 @@ const transport = [
     { label: 'Carro', value: 'carro', name: 'options' },
 ];
 
-const visibility = [
-    { label: 'Privado', value: 'private' },
-    { label: 'Amigos', value: 'friends' },
-    { label: 'Convidados', value: 'guests' },
-    { label: 'Todos', value: 'all' },
-];
+// const visibility = [
+//     { label: 'Privado', value: 'private' },
+//     { label: 'Amigos', value: 'friends' },
+//     { label: 'Convidados', value: 'guests' },
+//     { label: 'Todos', value: 'all' },
+// ];
 
 export default function ToPlan() {
     const [tripList, setTripList] = useState([]);
 
     const [isOpen, setIsOpen] = useState(false);
     const [getNavTab, setNavTab] = useState(1);
-    const [selectedTrajectoryType, setSelectedTrajectoryType] = useState('');
-    const [selectedvisibilityType, setSelectedvisibilityType] = useState('');
+    const [, setSelectedTrajectoryType] = useState('');
+    const [, setSelectedvisibilityType] = useState('');
 
 
     const [clima, setClima] = useState('');
@@ -39,6 +39,12 @@ export default function ToPlan() {
     const [tempoMaximo, setTempoMaximo] = useState('');
     const [custoMaximo, setCustoMaximo] = useState('');
     const [destino, setDestino] = useState('');
+    const [dataInicio, setDataInicio] = useState('');
+    const [dataFim, setDataFim] = useState('');
+
+    useEffect(() => {
+      console.log(dataInicio)
+  }, [dataInicio]);
 
     const generateRandomInputs = () => {
         // Gerar valores aleatórios com base no objeto ramdom
@@ -59,6 +65,7 @@ export default function ToPlan() {
       useEffect(() => {
         getMyTrips();
     }, []);
+    
 
     const generateTravelByChatGpt = async () => {
         try {
@@ -69,7 +76,9 @@ export default function ToPlan() {
             "transporte": selectedTransport,
             "tempoMaximo": tempoMaximo,
             "custoMaximo": parseFloat(custoMaximo),
-            "destino": destino
+            "destino": destino,
+            "dataInicio": dataInicio,
+            "dataFim": dataFim,
           };
       
           const response = await api.post("/trip", requestData, {
@@ -84,6 +93,7 @@ export default function ToPlan() {
       
           // Limpe o estado
           handleNoInputValue();
+          getMyTrips();
         } catch (error) {
           console.error("Error making the API request:", error);
         }
@@ -142,16 +152,17 @@ export default function ToPlan() {
                         {getNavTab === 1 &&
                             <>
                                 <BackgroundCard>
-                                    <Switch enabled={['IA Neurotrix','IA Chat GPT']} size={'sm'} value={isAiNeurotrix} onValueChange={setIsAiNeurotrix}/>
+                                    {/* <Switch enabled={['IA Neurotrix','IA Chat GPT']} size={'sm'} value={isAiNeurotrix} onValueChange={setIsAiNeurotrix}/> */}
                                     
 
-                                    {!isAiNeurotrix && 
                                         <>
                                                 <Button text="Gerar inputs" size={'lg'} align={'left'} onClick={generateRandomInputs} />
                                                 <Input text={"Clima"} value={clima} onChange={(e) => setClima(e.target.value)}/>
                                                 <Input text={"Tempo máximo (dias)"} value={tempoMaximo} onChange={(e) => setTempoMaximo(e.target.value)}/>
                                                 <Input text={"Custo máximo (R$)"} value={custoMaximo} onChange={(e) => setCustoMaximo(e.target.value)}/>
                                                 <Input text={"Destino"} value={destino} onChange={(e) => setDestino(e.target.value)}/>
+                                                <Input text={"Data inicio"} type="date" value={dataInicio} onChange={(e) => setDataInicio(e.target.value)}/>
+                                                <Input text={"Data Fim"} type="date" value={dataFim} onChange={(e) => setDataFim(e.target.value)}/>
                                                 <Radio
                                                     title={'Transporte'}
                                                     options={transport}
@@ -164,9 +175,8 @@ export default function ToPlan() {
                                                     <Button text="Criar" solid={true} onClick={() => generateTravelByChatGpt()}/>
                                                 </Gap>
                                         </>
-                                    }
 
-                                    {isAiNeurotrix && 
+                                    {/* {isAiNeurotrix && 
                                         <>
                                             <Button text="Gerar inputs" size={'lg'} align={'left'}/>
                                             <Input text={"Título"}/>
@@ -204,13 +214,13 @@ export default function ToPlan() {
                                                 <Button text="Criar" solid={true} />
                                             </Gap>
                                         </>
-                                    }
+                                    } */}
                                 </BackgroundCard>
                             </>
                         }
                         {getNavTab === 2 &&
                             <>
-                                <SearchInput searchType="travel" placeholder="Buscar" />
+                                <SearchInput searchType="travel" placeholder="Buscar" disableFilter/>
                                 <TravelCardAiList list={tripList}/>
                             </>
                         }

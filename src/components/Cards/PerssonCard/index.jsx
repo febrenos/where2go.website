@@ -45,6 +45,7 @@ export function PerssonCard({ list, type}) {
               <div>
                 <Styled.Bold>{list.nickname}</Styled.Bold>
                 <Global.Date>{list.name}</Global.Date>
+                <Global.Date>{list.email}</Global.Date>
               </div>
             </Styled.GridTop>
           </Styled.FlexTop>
@@ -57,7 +58,7 @@ export function PerssonCard({ list, type}) {
         </Global.Icons>
         </Global.Content>
         <Styled.TextContent isShowMore={isShowMore}>
-              <Styled.Flex>
+              {/* <Styled.Flex>
                 <Styled.Bold>Entrou em:</Styled.Bold>
                 <Global.Text>{list.joinedOn}</Global.Text>
               </Styled.Flex>
@@ -80,6 +81,9 @@ export function PerssonCard({ list, type}) {
               <Styled.VisitedByMe>
                 <Styled.Bold>Viagens salvas:</Styled.Bold>
                 <Global.Text>{`${list.savedTrips}`}</Global.Text>
+              </Styled.VisitedByMe> */}
+              <Styled.VisitedByMe>
+                <Global.Text>{list.cellphone}</Global.Text>
               </Styled.VisitedByMe>
               
               <Styled.VisitedByMe>

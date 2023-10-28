@@ -37,8 +37,9 @@ export default function Profile() {
   const [cpf, setCpf] = useState("");
   const [cellphone, setCellphone] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [cep, setCep] = useState("");
+  const [description, setDescription] = useState("");
+
+  const [isPasswordValid, setIsPasswordValid] = useState(true);
 
   const getMyUser = async () => {
     const authToken = getCookie("authToken");
@@ -56,18 +57,22 @@ export default function Profile() {
     setCpf(userData.cpf);
     setCellphone(userData.cellphone);
     setPassword(userData.password);
-    setConfirmPassword(userData.confirmPassword);
-    setCep(userData.cep);
+    setDescription(userData.description);
   };
 
   const upadateUser = async (nickname, name, email, cpf, cellphone, password) => {
+
+    // Senhas têm o tamanho mínimo, você pode prosseguir com a atualização do usuário
+    setIsPasswordValid(true);
+
     const userBody = {
       nickname,
       name,
       email,
       cpf,
       cellphone,
-      password
+      password,
+      description
     }
     console.log(userBody)
 
@@ -102,7 +107,7 @@ export default function Profile() {
             <Input text={"CPF"} value={cpf} onChange={(e) => setCpf(e.target.value)} />
             <Input text={"Telefone"} value={cellphone} onChange={(e) => setCellphone(e.target.value)} />
             <Input text={"Senha"} value={password} type="password" onChange={(e) => setPassword(e.target.value)} />
-            <Input text={"Confirma senha"} value={confirmPassword} type="password" onChange={(e) => setConfirmPassword(e.target.value)}/>
+            <Input text={"Descrição"} value={description} onChange={(e) => setDescription(e.target.value)} />
             <WordPreferences list={userProfileData.wordPreferences}/>
             <Gap>
               <Button text="Cancelar" />

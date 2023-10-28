@@ -28,7 +28,7 @@ export function DatePicker({list=defaultList}) {//lidt = agended days ex: '20/11
 
   useEffect(() => {
     const currentYear = new Date().getFullYear();
-    const yearOptions = Array.from({ length: 3 }, (_, index) => currentYear - index);
+    const yearOptions = Array.from({ length: 3 }, (_, index) => currentYear + index);
     setYears(yearOptions);
   }, []);
 
@@ -123,7 +123,7 @@ export function DatePicker({list=defaultList}) {//lidt = agended days ex: '20/11
     const day = index + 1;
 
     // Verifica se o dia está na lista de agendados
-    const isAgended = list.includes(`${day}/${selectedMonth + 1}/${selectedYear}`);
+    const isAgended = list.includes(`${selectedYear}-${selectedMonth + 1}-${day}`);
 
     return (
       <Styled.Circle

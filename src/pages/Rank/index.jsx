@@ -3,11 +3,11 @@ import { Menu, TitlePage, GridItems } from '../../components/index'
 import { StyledContentLogged } from '../../style';
 
 const list = {
-    nickname:'fe.brenos',
-    listName:'Ouro',
-    score:299,
-    nextScore:300,
-    travelledDistance: 200,
+    nickname:'Guest Neurotrix',
+    listName:'Iniciante',
+    score:0,
+    nextScore:0,
+    travelledDistance: 0,
     achievements:[{
         title:'Ouro',
         size:'big', 
@@ -19,7 +19,7 @@ const list = {
     {
         title:'Prata',
         size:'big', 
-        score:100, 
+        score:200, 
         description:'Muito bom! Você alcancou o nível é nível Prata', 
         typeScore:'points',
         color:'#939393'
@@ -27,7 +27,7 @@ const list = {
     {
         title:'Bronze',
         size:'big', 
-        score:50, 
+        score:100, 
         description:'bom! Você alcancou o nível é nível Bronze', 
         typeScore:'points',
         color:'#d4660b'
@@ -35,7 +35,7 @@ const list = {
     {
         title:'Iniciante',
         size:'big',
-        score:10,
+        score:0,
         description:'Bem vindo! Conquiste trofeús', 
         typeScore:'points',
         color:'#26252a'
@@ -43,7 +43,7 @@ const list = {
     {
         title:'Natureza', 
         size:'small', 
-        score:4, 
+        score:0, 
         description:'Viagens com natureza', 
         typeScore:'days',
     },
@@ -57,7 +57,7 @@ const list = {
     {
         title:'Aventura', 
         size:'medium', 
-        score:10, 
+        score:0, 
         description:'Viagens com natureza', 
         typeScore:'days',
     },
@@ -71,14 +71,14 @@ const list = {
     {
         title:'Classico', 
         size:'small', 
-        score:2, 
+        score:0, 
         description:'locais clássicos', 
         typeScore:'days'
     },
     {
         title:'Dia', 
         size:'small', 
-        score:1, 
+        score:0, 
         description:'Locais visitados de dia', 
         typeScore:'days'
     },
@@ -92,7 +92,7 @@ const list = {
     {
         title:'Tech', 
         size:'small', 
-        score:2, 
+        score:0, 
         description:'Locais com tecnologia visitados ', 
         typeScore:'days'
     },
@@ -127,7 +127,7 @@ const list = {
     {
         title:'Quente', 
         size:'medium',
-        score:11, 
+        score:0, 
         description:'Locais quentes visitados', 
         typeScore:'days'
     },

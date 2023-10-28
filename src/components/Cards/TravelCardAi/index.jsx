@@ -81,12 +81,12 @@ export function TravelCardAi({ list, type}) {
       *Preço:* R$${list.custo}
       *Duração Viagem:* ${list.duracaoViagem}
       *Hospedagem:* ${list.hospedagem}
-      *Where2Go:* https://localhost:3000/${list.id}
       *Duração:* ${list.duracaoViagem}\n
       *Atividades:*\n
       ${activitiesInfo}
-      
     `;
+    // *Data Inicio:* ${list.dataInicio}
+    // *Data Fim:* ${list.dataFim}
   
     navigator.clipboard.writeText(informationToCopy)
       .then(() => {
@@ -101,7 +101,14 @@ export function TravelCardAi({ list, type}) {
   }  
 
   function handleClickLink() {
-    const informationToCopy = `*Where2Go:* https://localhost:3000/${list.id}`;
+    const informationToCopy = `
+    *${list.destino}*\n
+    *País:* ${list.pais}
+    *Local:* ${list.destino}
+    *Preço:* R$${list.custo}
+    *Duração Viagem:* ${list.duracaoViagem}
+    *Hospedagem:* ${list.hospedagem}
+    *Duração:* ${list.duracaoViagem}\n`;
 
     navigator.clipboard.writeText(informationToCopy)
     .then(() => {
@@ -132,7 +139,7 @@ export function TravelCardAi({ list, type}) {
     }, 2000);
   }
   
-
+  console.log(list)
   return (
     <>
     {(!isOcult && list.lenght !== 0)&& (
@@ -159,6 +166,17 @@ export function TravelCardAi({ list, type}) {
           </Global.Icons>
         </Global.Content>
         <Styled.TextContent isShowMore={isShowMore}>
+
+          {/* <Styled.Flex>
+            <Styled.Bold>Data inicio:</Styled.Bold>
+            <Global.Text>{list.dataInicio}</Global.Text>
+          </Styled.Flex>
+
+          <Styled.Flex>
+            <Styled.Bold>Data fim:</Styled.Bold>
+            <Global.Text>{list.dataFim}</Global.Text>
+          </Styled.Flex> */}
+
           <Styled.Bold>Atividades</Styled.Bold>
           <Styled.Flex>
             <div>

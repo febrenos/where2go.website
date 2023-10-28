@@ -52,7 +52,6 @@ export function FormSignUp() {
                 <Input text="Nome" type="text" />
                 <Input text="Email" type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <Input text="Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                <Input text="Confirme a senha" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
                 <div>
                     <p>Ao se registrar, você aceita nossos
                     <Styled.A target="_blank" rel="noopener noreferrer" href="https://google.com.br/terms"> termos de uso </Styled.A>
