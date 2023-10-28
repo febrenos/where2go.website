@@ -12,18 +12,12 @@ import {
   Button,
   TitlePage,
 } from '../../components/index';
+import api from '../../services/javaApi';
 
 import * as Styled from './style';
+import { getCookie } from '../../utils/utils';
 
 const userProfileData = {
-  nickname: 'fe.brenos',
-  name: 'Felipe Breno',
-  email: 'felipesugisawa1',
-  cpf: '527.346.738.19',
-  phone: '11 968651661',
-  cep: '03737-000',
-  password: 'testpassword',
-  confirmPassword: 'testpassword',
   wordPreferences:[
     'viagem',
     'ponto turistico',
@@ -37,26 +31,57 @@ const userProfileData = {
 export default function Profile() {
   const [isOpen, setIsOpen] = useState(false);
 
-  // States to store input values
-  const [nickname, setNickname] = useState(userProfileData.nickname);
-  const [name, setName] = useState(userProfileData.name);
-  const [email, setEmail] = useState(userProfileData.email);
-  const [cpf, setCpf] = useState(userProfileData.cpf);
-  const [phone, setPhone] = useState(userProfileData.phone);
-  const [password, setPassword] = useState(userProfileData.password);
-  const [confirmPassword, setConfirmPassword] = useState(userProfileData.confirmPassword);
-  const [cep, setCep] = useState(userProfileData.cep);
+  const [nickname, setNickname] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [cpf, setCpf] = useState("");
+  const [cellphone, setCellphone] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [cep, setCep] = useState("");
+
+  const getMyUser = async () => {
+    const authToken = getCookie("authToken");
+    const response = await api.get("/user", {
+      headers: {
+        Authorization: `Bearer ${authToken}`
+      }
+    });
+
+    const userData = response.data
+
+    setNickname(userData.nickname);
+    setName(userData.name);
+    setEmail(userData.email);
+    setCpf(userData.cpf);
+    setCellphone(userData.cellphone);
+    setPassword(userData.password);
+    setConfirmPassword(userData.confirmPassword);
+    setCep(userData.cep);
+  };
+
+  const upadateUser = async (nickname, name, email, cpf, cellphone, password) => {
+    const userBody = {
+      nickname,
+      name,
+      email,
+      cpf,
+      cellphone,
+      password
+    }
+    console.log(userBody)
+
+    const authToken = getCookie("authToken");
+    await api.put("/user", userBody, {
+      headers: {
+        Authorization: `Bearer ${authToken}`
+      }
+    });
+  }
 
   // Set initial values when the component is loaded
   useEffect(() => {
-    setNickname(userProfileData.nickname);
-    setName(userProfileData.name);
-    setEmail(userProfileData.email);
-    setCpf(userProfileData.cpf);
-    setPhone(userProfileData.phone);
-    setPassword(userProfileData.password);
-    setConfirmPassword(userProfileData.confirmPassword);
-    setCep(userProfileData.cep);
+    getMyUser()
   }, []);
 
   return (
@@ -75,14 +100,13 @@ export default function Profile() {
             <Input text={"Nome"} value={name} onChange={(e) => setName(e.target.value)} />
             <Input text={"Email"} value={email} onChange={(e) => setEmail(e.target.value)} />
             <Input text={"CPF"} value={cpf} onChange={(e) => setCpf(e.target.value)} />
-            <Input text={"Telefone"} value={phone} onChange={(e) => setPhone(e.target.value)} />
-            <Input text={"CEP"} value={cep} onChange={(e) => setCep(e.target.value)} />
-            <Input text={"Senha"} value={password} onChange={(e) => setPassword(e.target.value)} />
-            <Input text={"Confirma senha"} value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
+            <Input text={"Telefone"} value={cellphone} onChange={(e) => setCellphone(e.target.value)} />
+            <Input text={"Senha"} value={password} type="password" onChange={(e) => setPassword(e.target.value)} />
+            <Input text={"Confirma senha"} value={confirmPassword} type="password" onChange={(e) => setConfirmPassword(e.target.value)}/>
             <WordPreferences list={userProfileData.wordPreferences}/>
             <Gap>
               <Button text="Cancelar" />
-              <Button text="Salvar" solid />
+              <Button text="Salvar" solid onClick={() => upadateUser(nickname, name, email, cpf, cellphone, password)}/>
             </Gap>
           </BackgroundCard>
         </StyledContentLogged>

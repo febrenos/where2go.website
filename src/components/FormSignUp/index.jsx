@@ -6,7 +6,7 @@ import * as Styled from '../FormSignIn/style';
 import { BackgroundCard } from "../../style";
 import axios from "axios";
 
-const api = axios.create({ baseURL: "http://localhost:8080" });
+const api = axios.create({ baseURL: "https://wheretogoapplication.azurewebsites.net" });
 
 export function FormSignUp() {
     const [name, setName] = useState('');
