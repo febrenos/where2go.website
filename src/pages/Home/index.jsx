@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { Menu, TitlePage, SearchInput, TravelCardAiList } from '../../components/index'
-// import * as Styled from './style.jsx'
 import { StyledContentLogged } from '../../style';
 import api from '../../services/javaApi';
 import { getCookie } from '../../utils/utils';

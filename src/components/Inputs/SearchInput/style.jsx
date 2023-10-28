@@ -33,7 +33,7 @@ export const StyledIcon = styled(FontAwesomeIcon)`
 export const All = styled.div`
   width: 100%;
   display: flex;
-  margin-bottom:50px;
+  margin-bottom:100px;
   justify-content: center;
   // @media(width < 768px){
     

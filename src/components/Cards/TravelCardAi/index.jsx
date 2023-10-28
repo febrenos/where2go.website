@@ -167,7 +167,7 @@ export function TravelCardAi({ list, type}) {
         </Global.Content>
         <Styled.TextContent isShowMore={isShowMore}>
 
-          {/* <Styled.Flex>
+          <Styled.Flex>
             <Styled.Bold>Data inicio:</Styled.Bold>
             <Global.Text>{list.dataInicio}</Global.Text>
           </Styled.Flex>
@@ -175,7 +175,7 @@ export function TravelCardAi({ list, type}) {
           <Styled.Flex>
             <Styled.Bold>Data fim:</Styled.Bold>
             <Global.Text>{list.dataFim}</Global.Text>
-          </Styled.Flex> */}
+          </Styled.Flex>
 
           <Styled.Bold>Atividades</Styled.Bold>
           <Styled.Flex>
