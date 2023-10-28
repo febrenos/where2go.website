@@ -17,3 +17,18 @@ export function setCookie(name, value, days) {
     const expires = `expires=${expirationDate.toUTCString()}`;
     document.cookie = `${name}=${value}; ${expires}; path=/`;
 }
+
+export function deleteAllCookies() {
+    const cookies = document.cookie.split(";");
+
+    for (const cookie of cookies) {
+        const [cookieName, _] = cookie.split("=");
+        deleteCookie(cookieName);
+    }
+    console.log("Cookies deleteds")
+}
+
+export function deleteCookie(name) {
+    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    console.log("Cookie deleted")
+}

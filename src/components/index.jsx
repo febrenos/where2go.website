@@ -23,6 +23,8 @@ export { NotificationCardList } from './CardsList/NotificationCardList';
 export { PeopleCardList } from './CardsList/PeopleCardList';
 export { TravelCard } from './Cards/TravelCard';
 export { PerssonCard } from './Cards/PerssonCard';
+export { TravelCardAi } from './Cards/TravelCardAi';
+export { TravelCardAiList } from './CardsList/TraelCardAiList';
 export { TravelCardList } from './CardsList/TravelCardList';
 export { Switch } from './Inputs/Switch';
 export { Radio } from './Inputs/Radio';

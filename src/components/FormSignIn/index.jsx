@@ -4,10 +4,8 @@ import { Input, Button, TitleCard } from "../index";
 import Logo from "../../img/where2GoTxt.png";
 import * as Styled from './style';
 import { BackgroundCard } from "../../style";
-import axios from 'axios';
+import api from '../../services/javaApi'
 import { setCookie } from "../../utils/utils";
-
-const api = axios.create({ baseURL: "http://localhost:8080" });
 
 export function FormSignIn() {
     const [login, setLogin] = useState('');
@@ -20,15 +18,20 @@ export function FormSignIn() {
                 "login": login,
                 "password": password
             };
-
+    
             const response = await api.post("/login", requestData);
-
+            // console.log(response.data)
+    
             // Verifique se a resposta contém o token
-            if (response.data.token) {
-                // Salve o token no cookie
-                setCookie("authToken", response.data.token, 7); // Exemplo: o token expirará em 7 dias
+            // console.log(response.data)
+            
+            if (response.data) {
+                console.log("OK")
+                setCookie("authToken", response.data, 7);
             }
+            
 
+    
             if (response.status === 200) {
                 // Navegue para a página de perfil se o status da resposta for 200
                 navigate('/Profile');
@@ -36,7 +39,7 @@ export function FormSignIn() {
         } catch (error) {
             console.error("Error making the API request:", error);
         }
-    };
+    };    
 
     return (
         <Styled.All>

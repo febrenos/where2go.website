@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
-import { Menu, TitlePage, NavTab, SearchInput, Input, Button, Switch, Radio, WordPreferences } from '../../components/index'
+import React, { useEffect, useState } from 'react'
+import { Menu, TitlePage, NavTab, SearchInput, Input, Button, Switch, Radio, WordPreferences, TravelCardAi, TravelCardAiList } from '../../components/index'
 // import * as Styled from './style.jsx'
 import { BackgroundCard, Gap, StyledContentLogged } from '../../style';
-import axios from 'axios'
+import api from '../../services/javaApi'
 import { getCookie } from '../../utils/utils';
-const api = axios.create({baseURL: "http://localhost:8080"})
 
 const trajectoryType = [
     { label: 'Viagem', value: 'option1', name: 'options' },
@@ -27,6 +26,8 @@ const visibility = [
 ];
 
 export default function ToPlan() {
+    const [tripList, setTripList] = useState([]);
+
     const [isOpen, setIsOpen] = useState(false);
     const [getNavTab, setNavTab] = useState(1);
     const [selectedTrajectoryType, setSelectedTrajectoryType] = useState('');
@@ -37,53 +38,85 @@ export default function ToPlan() {
     const [selectedTransport, setSelectedTransport] = useState('aviao');
     const [tempoMaximo, setTempoMaximo] = useState('');
     const [custoMaximo, setCustoMaximo] = useState('');
+    const [destino, setDestino] = useState('');
 
     const generateRandomInputs = () => {
         // Gerar valores aleatórios com base no objeto ramdom
-        const randomClima = ['quente', 'frio', 'humido', 'seco'][Math.floor(Math.random() * 3)];
+        const randomClima = ['quente', 'frio', 'úmido', 'seco'][Math.floor(Math.random() * 4)];
         const randomTransport = ['aviao', 'onibus', 'trem', 'carro'][Math.floor(Math.random() * 4)];
         const randomTempoMaximo = Math.floor(Math.random() * 23) + 2; // Generates a random time between 2 and 24 (greater than 1)
-        const randomCustoMaximo = (Math.random() * 940 + 60).toFixed(2); // Generates a random cost between 60 and 1000 (greater than 60)        
+        const randomCustoMaximo = (Math.random() * (10000 - 2000) + 2000).toFixed(2);
+        const ramdomDestino = ['São Paulo', 'Espanha', 'Dubai', 'Estados Unidos', 'Santa Catarina', 'Alaska', 'Machu Picchu, Peru', 'Paris, França'][Math.floor(Math.random() * 9)];      
       
         // Definir os valores nos estados correspondentes
         setClima(randomClima);
         setSelectedTransport(randomTransport);
         setTempoMaximo(randomTempoMaximo.toString());
         setCustoMaximo(randomCustoMaximo);
+        setDestino(ramdomDestino);
       };
 
+      useEffect(() => {
+        getMyTrips();
+    }, []);
 
     const generateTravelByChatGpt = async () => {
         try {
-            const authToken = getCookie("authToken");
-
-            const requestData = {
-                "clima": clima,
-                "transporte": selectedTransport,
-                "tempoMaximo": tempoMaximo,
-                "custoMaximo": parseInt(custoMaximo, 10)
+          const authToken = getCookie("authToken");
+          console.log(`authToken generateTravelByChatGpt ${authToken}`);
+          const requestData = {
+            "clima": clima,
+            "transporte": selectedTransport,
+            "tempoMaximo": tempoMaximo,
+            "custoMaximo": parseFloat(custoMaximo),
+            "destino": destino
+          };
+      
+          const response = await api.post("/trip", requestData, {
+            headers: {
+              Authorization: `Bearer ${authToken}`
             }
-
-            const response = await api.post("/trip", requestData, {
-                headers: {
-                    Authorization: `Bearer ${authToken}`
-                }
-            });
-            // Handle the response here if needed
-    
-            // Clear the state
-            handleNoInputValue();
+          });
+      
+          // Lide com a resposta aqui, se necessário
+          // Por exemplo, você pode querer imprimir a resposta no console:
+          console.log("Response data:", response.data);
+      
+          // Limpe o estado
+          handleNoInputValue();
         } catch (error) {
-            console.error("Error making the API request:", error);
+          console.error("Error making the API request:", error);
+        }
+      };
+      
+    const getMyTrips = async () => {
+        try {
+          const authToken = getCookie("authToken");
+          const response = await api.get("/trip", {
+            headers: {
+              Authorization: `Bearer ${authToken}`
+            }
+          });
+
+          const trips = response.data;
+          setTripList(trips);
+          console.log(tripList)
+          return tripList;
+          
+        } catch (error) {
+          console.error("Error making the API request:", error);
         }
     }
+    
     
     const handleNoInputValue = () =>{
         setClima('');
         setSelectedTransport('');
         setTempoMaximo('');
         setCustoMaximo('');
+        setDestino('');
     }
+
     const handleVisibilityType = (value) =>{
         setSelectedvisibilityType(value);
     };
@@ -115,30 +148,17 @@ export default function ToPlan() {
                                     {!isAiNeurotrix && 
                                         <>
                                                 <Button text="Gerar inputs" size={'lg'} align={'left'} onClick={generateRandomInputs} />
-                                                {/* request */}
                                                 <Input text={"Clima"} value={clima} onChange={(e) => setClima(e.target.value)}/>
-                                                {/* request */}
+                                                <Input text={"Tempo máximo (dias)"} value={tempoMaximo} onChange={(e) => setTempoMaximo(e.target.value)}/>
+                                                <Input text={"Custo máximo (R$)"} value={custoMaximo} onChange={(e) => setCustoMaximo(e.target.value)}/>
+                                                <Input text={"Destino"} value={destino} onChange={(e) => setDestino(e.target.value)}/>
                                                 <Radio
                                                     title={'Transporte'}
                                                     options={transport}
                                                     selectedValue={selectedTransport}
                                                     onValueChange={handleTransportChange}
                                                 />
-                                                {/* request */}
-                                                <Input text={"Tempo máximo (horas)"} value={tempoMaximo} onChange={(e) => setTempoMaximo(e.target.value)}/>
-                                                {/* request */}
-                                                <Input text={"Custo máximo em (R$)"} value={custoMaximo} onChange={(e) => setCustoMaximo(e.target.value)}/>
 
-                                                {/*response*/}
-                                                {/* <Input text={"Destino"}/>
-                                                <Input text={"País"}/>
-                                                <Input text={"Atividades po Dia"}/> */}
-                                                {/* dias */}
-                                                {/* <Input text={"Hospedagem"}/>
-                                                <Input text={"Tempo de Distancia"}/>
-                                                <Input text={"Documentos"}/>
-                                                <Input text={"Duração"}/>
-                                                <Input text={"Descrição"}/> */}
                                                 <Gap>
                                                     <Button text="Cancelar" onClick={() => handleNoInputValue()}/>
                                                     <Button text="Criar" solid={true} onClick={() => generateTravelByChatGpt()}/>
@@ -191,6 +211,7 @@ export default function ToPlan() {
                         {getNavTab === 2 &&
                             <>
                                 <SearchInput searchType="travel" placeholder="Buscar" />
+                                <TravelCardAiList list={tripList}/>
                             </>
                         }
                         

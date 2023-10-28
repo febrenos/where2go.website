@@ -13,8 +13,6 @@ export function FormSignUp() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [dateOfBirth, setDateOfBirth] = useState('');
-    const [cep, setCEP] = useState('');
 
     const navigate = useNavigate();
 
@@ -23,8 +21,6 @@ export function FormSignUp() {
         setEmail('');
         setPassword('');
         setConfirmPassword('');
-        setDateOfBirth('');
-        setCEP('');
 
         try {
             const requestData = {
@@ -55,10 +51,8 @@ export function FormSignUp() {
                 <Input text="Nome de usuário" type="text" value={name} onChange={(e) => setName(e.target.value)} />
                 <Input text="Nome" type="text" />
                 <Input text="Email" type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
-                <Input text="CEP" type="number" value={cep} onChange={(e) => setCEP(e.target.value)} />
                 <Input text="Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <Input text="Confirme a senha" type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
-                <Input text="Data de Nascimento" type="date" value={dateOfBirth} onChange={(e) => setDateOfBirth(e.target.value)} />
                 <div>
                     <p>Ao se registrar, você aceita nossos
                     <Styled.A target="_blank" rel="noopener noreferrer" href="https://google.com.br/terms"> termos de uso </Styled.A>
