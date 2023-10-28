@@ -46,7 +46,7 @@ export function FormSignIn() {
             <TitleCard text={'Login'} />
             <BackgroundCard mobile>
                 <Styled.Img src={Logo} />
-                <Input text="Usuário" type="text" value={login} onChange={(e) => setLogin(e.target.value)} />
+                <Input text="Email" type="text" value={login} onChange={(e) => setLogin(e.target.value)} />
                 <Input text="Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <div>
                     <Styled.Text>Ainda não tem uma conta?</Styled.Text>

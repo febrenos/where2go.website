@@ -9,24 +9,25 @@ import axios from "axios";
 const api = axios.create({ baseURL: "https://wheretogoapplication.azurewebsites.net" });
 
 export function FormSignUp() {
+    const [nickname, setNickname] = useState('');
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
 
     const navigate = useNavigate();
 
     const signUpApplication = async () => {
+        setNickname('');
         setName('');
         setEmail('');
         setPassword('');
-        setConfirmPassword('');
 
         try {
             const requestData = {
                 "name": name,
                 "email": email,
-                "password": password
+                "password": password,
+                "nickname": nickname,
             };
 
             const response = await api.post("user/register", requestData);
@@ -48,8 +49,8 @@ export function FormSignUp() {
             <TitleCard text={'Cadastro'} />
             <BackgroundCard mobile>
                 <Styled.Img src={Logo} />
-                <Input text="Nome de usuário" type="text" value={name} onChange={(e) => setName(e.target.value)} />
-                <Input text="Nome" type="text" />
+                <Input text="Nickname" type="text" value={nickname} onChange={(e) => setNickname(e.target.value)} />
+                <Input text="Nome" type="text" value={name} onChange={(e) => setName(e.target.value)}/>
                 <Input text="Email" type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
                 <Input text="Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <div>
