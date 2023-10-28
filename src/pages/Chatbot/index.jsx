@@ -10,7 +10,7 @@ const api = axios.create({baseURL: "https://febrenos.pythonanywhere.com/"})
 
 const startMessages = [
     {
-        type:'receive',
+        type:'recive',
         message:'Sou seu assistente de viagem, o que precisa?'
     },
     {
@@ -18,38 +18,38 @@ const startMessages = [
         message:'Olá sou o travel assistent, como posso te ajudar?'
     },
     {
-        type:'receive',
+        type:'recive',
         message:'Oi explorador! Como posso te ajudar hoje?'
     },
     {
-        type:'receive',
+        type:'recive',
         message:'Olá! Estou aqui para auxiliá-lo em viagens, O que deseja Precisa?'
     },
     {
-        type:'receive',
+        type:'recive',
         message:'Oi viajate! como posso ajudar na sua jornada?'
     },
     {
-        type:'receive',
+        type:'recive',
         message:'Bem-vindo! Como posso tornar a sua viagem mais fácil hoje?'
     },
     {
-        type:'receive',
+        type:'recive',
         message:'Olá! Em que posso auxiliá-lo para a jornada?'
     },
     {
-        type:'receive',
+        type:'recive',
         message:'Oi! Sou seu assistente de viagem. Como posso facilitar sua experiência?'
     },
     {
-        type:'receive',
+        type:'recive',
         message:'Saudações! Como posso ajudá-lo a explorar o mundo?'
     },
 ]
 const messages = [
     // {
-    //     type:'receive',
-    //     message:'receive'
+    //     type:'recive',
+    //     message:'Recive'
     // },
     // {
     //     type:'send',
@@ -64,7 +64,7 @@ const getRandomStartMessage = () => {
 };
 
 const renderMessageContent = (item) => {
-    if (item.type === "send" || item.type === "receive") {
+    if (item.type === "send" || item.type === "recive") {
         // Mensagem de envio ou recebimento
         return (
             <Styled.MessageP>{item.message}</Styled.MessageP>
