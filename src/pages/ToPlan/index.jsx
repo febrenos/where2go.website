@@ -52,7 +52,7 @@ export default function ToPlan() {
         const randomTransport = ['aviao', 'onibus', 'trem', 'carro'][Math.floor(Math.random() * 4)];
         const randomTempoMaximo = Math.floor(Math.random() * 23) + 2; // Generates a random time between 2 and 24 (greater than 1)
         const randomCustoMaximo = (Math.random() * (10000 - 2000) + 2000).toFixed(2);
-        const ramdomDestino = ['São Paulo', 'Espanha', 'Dubai', 'Estados Unidos', 'Santa Catarina', 'Alaska', 'Machu Picchu, Peru', 'Paris, França'][Math.floor(Math.random() * 9)];      
+        const ramdomDestino = ['São Paulo', 'Espanha', 'Dubai', 'Estados Unidos', 'Curitiba, Paraná', 'Alaska', 'Machu Picchu, Peru', 'Paris, França'][Math.floor(Math.random() * 9)];      
       
         // Definir os valores nos estados correspondentes
         setClima(randomClima);
