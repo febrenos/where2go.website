@@ -23,28 +23,28 @@ export function Menu(props){
                 <NavLink to={"/"}>
                     <li><FontAwesomeIcon className="icon" icon={faHome}/><a>Home</a></li>
                 </NavLink>
-                <NavLink to={"/ToPlan"}>
+                <NavLink to={"/to-plan"}>
                     <li><FontAwesomeIcon className="icon" icon={faMapLocationDot}/><a>Planejar</a></li>
                 </NavLink>
-                <NavLink to={"/Rank"}>
+                <NavLink to={"/rank"}>
                     <li><FontAwesomeIcon className="icon" icon={faMedal}/><a>Rank</a></li>
                 </NavLink>
-                <NavLink to={"/People"}>
+                <NavLink to={"/people"}>
                     <li><FontAwesomeIcon className="icon" icon={faUserGroup}/><a>Pessoas</a></li>
                 </NavLink>
-                <NavLink to={"/Notifications"}>
+                <NavLink to={"/notifications"}>
                     <li><FontAwesomeIcon className="icon" icon={faBell}/><a>Notificações</a></li>
                 </NavLink>
-                <NavLink to={"/Calendar"}>
+                <NavLink to={"/calendar"}>
                     <li><FontAwesomeIcon className="icon" icon={faCalendarDays}/><a>Calendário</a></li>
                 </NavLink>
-                <NavLink to={"/ChatBot"}>
+                <NavLink to={"/chatbot"}>
                     <li><FontAwesomeIcon className="icon" icon={faPaperPlane}/><a>Chatbot</a></li>
                 </NavLink>
-                <NavLink to={"/Settings"}>
+                <NavLink to={"/settings"}>
                     <li><FontAwesomeIcon className="icon" icon={faGear}/><a>Configurações</a></li>
                 </NavLink>
-                <NavLink to={"/SignIn"}>
+                <NavLink to={"/sign-in"}>
                     <li id="logout"><FontAwesomeIcon className="icon" icon={faRightFromBracket}/><a>Sair</a></li>
                 </NavLink>
             </ul>

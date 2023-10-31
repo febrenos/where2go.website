@@ -34,7 +34,7 @@ export function FormSignUp() {
 
             if (response.status === 200) {
                 // Registro bem-sucedido, redirecione o usuário para a página de login
-                navigate('/SignIn');
+                navigate('/sign-in');
             } else {
                 // Outro status, trate como erro
                 console.error("Erro no registro. Status: " + response.status);
@@ -62,7 +62,7 @@ export function FormSignUp() {
                 </div>
                 <div>
                     <Styled.Text>Já tem uma conta?</Styled.Text>
-                    <Styled.TextBold><Link to="/SignIn">Login</Link></Styled.TextBold>
+                    <Styled.TextBold><Link to="/sign-in">Login</Link></Styled.TextBold>
                 </div>
                 <Button text="Cadastrar" size="md" solid onClick={signUpApplication} />
             </BackgroundCard>

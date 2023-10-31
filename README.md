@@ -3,7 +3,7 @@ Um planejamento de viagens react js
 
 - [NEUROTRIX AI API](https://febrenos.pythonanywhere.com)
 - [SITE APRESENTATIVO](https://where2go-info.vercel.app/)
-- [PROJETO](https://where2go.website/SignIn)
+- [PROJETO](https://where2go.website/sign-in)
 
 ### NEUROTRIX AI API
 | Method | url |

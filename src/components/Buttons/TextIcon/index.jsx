@@ -10,7 +10,7 @@ export function TextIcon({ text, action, align, type}) {
   const [isConfirm, setIsConfirm] = useState(false);
 
   let icon;
-  const toValue = type === 'delete' ? '/SignIn' : '';
+  const toValue = type === 'delete' ? '/sign-in' : '';
 
   function handleClickIsConfirm(){
     setIsConfirm(!isConfirm);

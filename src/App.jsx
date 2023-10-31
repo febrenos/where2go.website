@@ -22,18 +22,18 @@ export default function App(){
             <Router>
                 <Routes>
                     {/* not logged */}
-                    <Route path='/SignIn' element={<SignIn/>}/>
-                    <Route path='/SignUp' element={<SignUp/>}/>
+                    <Route path='/sign-in' element={<SignIn/>}/>
+                    <Route path='/sign-up' element={<SignUp/>}/>
                     {/* logged */}
-                    <Route path='/Profile' element={<Profile/>}/>
+                    <Route path='/profile' element={<Profile/>}/>
                     <Route path='/' element={<Home/>}/>
-                    <Route path='/ToPlan' element={<ToExplore/>}/>
-                    <Route path='/Rank' element={<Rank/>}/>
-                    <Route path='/People' element={<People/>}/>
-                    <Route path='/Notifications' element={<Notifications/>}/>
-                    <Route path='/Calendar' element={<Calendar/>}/>
-                    <Route path='/Settings' element={<Settings/>}/>
-                    <Route path='/Chatbot' element={<Chatbot/>}/>
+                    <Route path='/to-plan' element={<ToExplore/>}/>
+                    <Route path='/rank' element={<Rank/>}/>
+                    <Route path='/people' element={<People/>}/>
+                    <Route path='/notifications' element={<Notifications/>}/>
+                    <Route path='/calendar' element={<Calendar/>}/>
+                    <Route path='/settings' element={<Settings/>}/>
+                    <Route path='/chatbot' element={<Chatbot/>}/>
                 </Routes>
             </Router>
         </>

@@ -50,7 +50,7 @@ export function FormSignIn() {
                 <Input text="Senha" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                 <div>
                     <Styled.Text>Ainda não tem uma conta?</Styled.Text>
-                    <Styled.TextBold><Link to="/Signup">Cadastre-se</Link></Styled.TextBold>
+                    <Styled.TextBold><Link to="/sign-up">Cadastre-se</Link></Styled.TextBold>
                 </div>
                     <Button text="Login" size="md" solid onClick={signInApplication} />
             </BackgroundCard>
