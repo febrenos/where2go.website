@@ -34,7 +34,7 @@ export function FormSignIn() {
     
             if (response.status === 200) {
                 // Navegue para a página de perfil se o status da resposta for 200
-                navigate('/Profile');
+                navigate('/profile');
             }
         } catch (error) {
             console.error("Error making the API request:", error);
