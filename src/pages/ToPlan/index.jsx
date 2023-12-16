@@ -50,16 +50,25 @@ export default function ToPlan() {
         // Gerar valores aleatórios com base no objeto ramdom
         const randomClima = ['quente', 'frio', 'úmido', 'seco'][Math.floor(Math.random() * 4)];
         const randomTransport = ['aviao', 'onibus', 'trem', 'carro'][Math.floor(Math.random() * 4)];
-        const randomTempoMaximo = Math.floor(Math.random() * 23) + 2; // Generates a random time between 2 and 24 (greater than 1)
+        //const randomTempoMaximo = Math.floor(Math.random() * 23) + 2; // Generates a random time between 2 and 24 (greater than 1)
         const randomCustoMaximo = (Math.random() * (10000 - 2000) + 2000).toFixed(2);
         const ramdomDestino = ['São Paulo', 'Espanha', 'Dubai', 'Estados Unidos', 'Curitiba, Paraná', 'Alaska', 'Machu Picchu, Peru', 'Paris, França'][Math.floor(Math.random() * 9)];      
-      
+        const today = new Date();
+        const formattedToday = today.toISOString().split('T')[0]; // Formato YYYY-MM-DD
+        setDataInicio(formattedToday);
+    
+        const randomDays = Math.floor(Math.random() * 26) + 5; // Entre 5 e 30 dias
+        const endDate = new Date(today);
+        endDate.setDate(today.getDate() + randomDays);
+        const formattedEndDate = endDate.toISOString().split('T')[0];
         // Definir os valores nos estados correspondentes
         setClima(randomClima);
         setSelectedTransport(randomTransport);
-        setTempoMaximo(randomTempoMaximo.toString());
+        setTempoMaximo(randomDays.toString());
         setCustoMaximo(randomCustoMaximo);
         setDestino(ramdomDestino);
+        setDataInicio(formattedToday)
+        setDataFim(formattedEndDate)
       };
 
       useEffect(() => {
@@ -125,6 +134,8 @@ export default function ToPlan() {
         setTempoMaximo('');
         setCustoMaximo('');
         setDestino('');
+        setDataInicio('');
+        setDataFim('');
     }
 
     const handleVisibilityType = (value) =>{

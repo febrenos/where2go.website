@@ -20,30 +20,39 @@ export function Menu(props){
                         <a>Perfil</a>
                     </li>
                 </NavLink>
+
                 <NavLink to={"/"}>
                     <li><FontAwesomeIcon className="icon" icon={faHome}/><a>Home</a></li>
                 </NavLink>
+
                 <NavLink to={"/to-plan"}>
                     <li><FontAwesomeIcon className="icon" icon={faMapLocationDot}/><a>Planejar</a></li>
                 </NavLink>
+
                 <NavLink to={"/rank"}>
                     <li><FontAwesomeIcon className="icon" icon={faMedal}/><a>Rank</a></li>
                 </NavLink>
+
                 <NavLink to={"/people"}>
                     <li><FontAwesomeIcon className="icon" icon={faUserGroup}/><a>Pessoas</a></li>
                 </NavLink>
+
                 <NavLink to={"/notifications"}>
                     <li><FontAwesomeIcon className="icon" icon={faBell}/><a>Notificações</a></li>
                 </NavLink>
+
                 <NavLink to={"/calendar"}>
                     <li><FontAwesomeIcon className="icon" icon={faCalendarDays}/><a>Calendário</a></li>
                 </NavLink>
+
                 <NavLink to={"/chatbot"}>
                     <li><FontAwesomeIcon className="icon" icon={faPaperPlane}/><a>Chatbot</a></li>
                 </NavLink>
+
                 <NavLink to={"/settings"}>
                     <li><FontAwesomeIcon className="icon" icon={faGear}/><a>Configurações</a></li>
                 </NavLink>
+                
                 <NavLink to={"/sign-in"}>
                     <li id="logout"><FontAwesomeIcon className="icon" icon={faRightFromBracket}/><a>Sair</a></li>
                 </NavLink>

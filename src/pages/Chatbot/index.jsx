@@ -64,13 +64,18 @@ const getRandomStartMessage = () => {
 };
 
 const renderMessageContent = (item) => {
+    console.log(item)
     if (item.type === "send") {
         // Mensagem de envio ou recebimento
         return (
             <Styled.MessageP>{item.message}</Styled.MessageP>
         );
     } else if (Array.isArray(item.message)) {
-        if (item.message[0].type === "place_details") {
+        if (item.message.length === 0) {
+            return (
+                <Styled.MessageP>Desculpe, ainda nao tenho resposta para isso</Styled.MessageP>
+            );
+        }else if (item.message[0].type === "place_details") {
             // Mensagem do tipo "place_details"
             return (
                 <div style={{ marginTop: "10px" }}>
