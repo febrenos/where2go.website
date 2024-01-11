@@ -1,5 +1,12 @@
 # where2go.website
 Um planejamento de viagens react js
+Participei do desafio proposto pela Fiap em parceria com a Plusoft, que tinha como objetivo criar uma solução tecnológica integrada com Inteligência Artificial e Realidade Virtual.
+
+O projeto resultante foi o Where2go, uma plataforma que oferece um planejamento de viagem assertivo, personalizado de acordo com as preferências do usuário. Destaca-se a integração da inteligência artificial através da machine learning do ChatGPT.
+
+Minha responsabilidade principal foi o desenvolvimento completo do frontend utilizando React JS. Isso incluiu a integração com a API de chatbot em Python, também criada por mim, e a API core em Java, que gerenciava toda a lógica da aplicação. Além disso, implementei serviços como autenticação JWT, funcionalidades de login, registro, cadastro de usuários e gestão de viagens, entre outros, diretamente no frontend.
+
+Essas implementações contribuíram para uma experiência de usuário fluida e funcional, destacando a eficiência do Where2go na geração de planejamentos de viagem personalizados.
 
 - [NEUROTRIX AI API](https://febrenos.pythonanywhere.com)
 - [SITE APRESENTATIVO](https://where2go-info.vercel.app/)
