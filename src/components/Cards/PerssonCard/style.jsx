@@ -11,6 +11,7 @@ export const FlexTop = styled.div`
     display: flex;
     gap: 5px;
 `;
+
 export const GridTop = styled.div`
     display:flex;
     flex-direction:column;

@@ -44,7 +44,7 @@ export default function ToPlan() {
 
     useEffect(() => {
       console.log(dataInicio)
-  }, [dataInicio]);
+    }, [dataInicio]);
 
     const generateRandomInputs = () => {
         // Gerar valores aleatórios com base no objeto ramdom

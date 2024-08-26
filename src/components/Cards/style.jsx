@@ -60,9 +60,9 @@ export const Flex = styled.div`
 `;
 
 export const ContentIcon = styled.div`
-display:flex;
-align-items:center;
-justify-content:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   cursor: pointer;
   color: ${props => (props.isCheck ? 'var(--primary-color)' : 'var(--txt-primary)')};
   font-size: 20px;
