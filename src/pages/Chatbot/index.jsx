@@ -6,7 +6,7 @@ import { faPaperPlane } from "@fortawesome/free-solid-svg-icons"
 import * as Styled from "./style"
 import axios from "axios"
 
-const api = axios.create({ baseURL: proccess.env.REACT_APP_CHAT_BOT_API })
+const api = axios.create({ baseURL: process.env.REACT_APP_CHAT_BOT_API })
 
 const startMessages = [
   {
