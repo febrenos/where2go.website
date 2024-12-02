@@ -1,10 +1,10 @@
-import axios from 'axios';
+import axios from "axios"
 
 const api = axios.create({
-    baseURL: 'http://where2go-env-1.eba-b9euqnni.us-east-2.elasticbeanstalk.com',
-    headers: {
-        'Content-Type': 'application/json',
-    },
-});
+  baseURL: process.env.REACT_APP_TRAVEL_API,
+  headers: {
+    "Content-Type": "application/json",
+  },
+})
 
-export default api;
+export default api
